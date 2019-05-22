@@ -91,7 +91,7 @@
 \def\examplename{Example}%
 \def\exercisename{Exercise}%
 \def\figurename{Fig.}%
-\def\keywordname{{\bf Keywords:}}%
+\def\keywordname{{\bf 关键字：}}%
 \def\indexname{Index}%
 \def\lemmaname{Lemma}%
 \def\contriblistname{List of Contributors}%

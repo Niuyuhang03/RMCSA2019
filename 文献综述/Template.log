@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.5.22)  22 MAY 2019 19:01
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7050 64-bit) (preloaded format=xelatex 2019.5.22)  22 MAY 2019 19:28
 entering extended mode
-**f:/BUAA/研究方法论/文献综述/Template.tex
-(f:/BUAA/研究方法论/文献综述/Template.tex
+**./Template.tex
+(Template.tex
 LaTeX2e <2018-12-01>
-(f:/BUAA\研究方法论\文献综述\llncs.cls
+(llncs.cls
 Document Class: llncs 2014/03/31 v2.19 
  LaTeX document class for Lecture Notes in Computer Science
 ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.cls"
@@ -22,7 +22,8 @@ File: size10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\multicol.sty"
+) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\multicol.s
+ty"
 Package: multicol 2018/12/27 v1.8v multicolumn formatting (FMi)
 \c@tracingmulticols=\count88
 \mult@box=\box27
@@ -70,7 +71,9 @@ Package: multicol 2018/12/27 v1.8v multicolumn formatting (FMi)
 \mult@nat@firstbox=\box51
 \colbreak@box=\box52
 \mc@col@check@num=\count96
-) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\aliascnt.sty"
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\aliascnt.
+sty"
 Package: aliascnt 2018/09/07 v1.5 Alias counters (HO)
 )
 \c@chapter=\count97
@@ -123,28 +126,39 @@ LaTeX Font Info:    Redeclaring math symbol \Omega on input line 372.
 \c@solution=\count115
 \c@remark=\count116
 \headlineindent=\dimen124
-) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\amsfonts.sty"
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\amsfonts.
+sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks18
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amstext.sty"
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amstext.st
+y"
 Package: amstext 2000/06/29 v2.01 AMS text
- ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsgen.sty"
+
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsgen.sty
+"
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks19
 \ex@=\dimen125
-)) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsmath.sty"
+))
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsmath.st
+y"
 Package: amsmath 2018/12/01 v2.17b AMS math features
 \@mathmargin=\skip45
 
 For additional information on amsmath, use the `?' option.
-("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsbsy.sty"
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsbsy.sty
+"
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen126
-) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsopn.sty"
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsopn.sty
+"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count117
@@ -188,7 +202,9 @@ Package amsmath Warning: Unable to redefine math accent \vec.
 \mathdisplay@stack=\toks23
 LaTeX Info: Redefining \[ on input line 2844.
 LaTeX Info: Redefining \] on input line 2845.
-) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/enumitem\enumitem.sty"
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/enumitem\enumitem.
+sty"
 Package: enumitem 2019/02/04 v3.8 Customized lists
 \enitkv@toks@=\toks24
 \labelindent=\skip48
@@ -197,31 +213,46 @@ Package: enumitem 2019/02/04 v3.8 Customized lists
 \enit@inbox=\box57
 \enit@count@id=\count129
 \enitdp@description=\count130
-) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/multirow\multirow.sty"
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/multirow\multirow.
+sty"
 Package: multirow 2019/01/01 v2.4 Span multiple rows of a table
 \multirow@colwidth=\skip49
 \multirow@cntb=\count131
 \multirow@dima=\skip50
 \bigstrutjot=\dimen135
-) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphicx.sty"
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphicx.
+sty"
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
- ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval.sty"
+
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval.st
+y"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks26
-) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphics.sty"
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphics.
+sty"
 Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
- ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.sty"
+
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.sty"
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\graphics.cfg"
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\graph
+ics.cfg"
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 99.
- ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\pdftex.def"
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+Package graphics Info: Driver file: xetex.def on input line 99.
+
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\xetex
+.def"
+File: xetex.def 2017/06/24 v5.0h Graphics/color driver for xetex
 ))
 \Gin@req@height=\dimen136
 \Gin@req@width=\dimen137
-) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/subfigure\subfigure.sty"
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/subfigure\subfigur
+e.sty"
 Package: subfigure 2002/07/30 v2.1.4 subfigure package
 \subfigtopskip=\skip51
 \subfigcapskip=\skip52
@@ -237,26 +268,39 @@ Package: subfigure 2002/07/30 v2.1.4 subfigure package
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
-("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/subfigure\subfigure.cfg")
+
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/subfigure\subfigur
+e.cfg")
 \subfig@top=\skip55
 \subfig@bottom=\skip56
-) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\amssymb.sty"
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\amssymb.s
+ty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/algorithms\algorithm.sty"
-Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
- ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/float\float.sty"
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/algorithms\algorit
+hm.sty"
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count136
 \float@exts=\toks27
 \float@box=\box58
 \@float@everytoks=\toks28
 \@floatcapt=\box59
-) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ifthen.sty"
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ifthen.sty"
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks29
 \c@algorithm=\count137
-) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/algorithms\algorithmic.sty"
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/algorithms\algorit
+hmic.sty"
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 \c@ALC@unique=\count138
 \c@ALC@line=\count139
@@ -264,40 +308,701 @@ Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 \c@ALC@depth=\count141
 \ALC@tlm=\skip57
 \algorithmicindent=\skip58
-) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty"
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty"
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/cite\cite.sty"
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/cite\cite.sty"
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
-) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\color.sty"
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\color.sty
+"
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
- ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\color.cfg"
+
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\color
+.cfg"
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package color Info: Driver file: pdftex.def on input line 147.
-) (f:/BUAA\研究方法论\文献综述\Template.aux)
-f:/BUAA/研究方法论/文献综述/Template.tex:21: I can't write on file `Template.aux'.
-\document ...ate \openout \@mainaux \jobname .aux 
-                                                  \immediate \write \@mainau...
-l.21 \begin{document}
-                     
-Please type another output file name
-f:/BUAA/研究方法论/文献综述/Template.tex:21: Emergency stop.
-\document ...ate \openout \@mainaux \jobname .aux 
-                                                  \immediate \write \@mainau...
-l.21 \begin{document}
-                     
-*** (job aborted, file error in nonstop mode)
+Package color Info: Driver file: xetex.def on input line 147.
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ctex\ctex.sty"
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3kernel\expl3.sty
+"
+Package: expl3 2019-05-09 L3 programming layer (loader) 
 
- 
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3kernel\expl3-cod
+e.tex"
+Package: expl3 2019-05-09 L3 programming layer (code)
+\c_max_int=\count142
+\l_tmpa_int=\count143
+\l_tmpb_int=\count144
+\g_tmpa_int=\count145
+\g_tmpb_int=\count146
+\g__kernel_prg_map_int=\count147
+\c__ior_term_ior=\count148
+\c_log_iow=\count149
+\l_iow_line_count_int=\count150
+\l__iow_line_target_int=\count151
+\l__iow_one_indent_int=\count152
+\l__iow_indent_int=\count153
+\c_zero_dim=\dimen140
+\c_max_dim=\dimen141
+\l_tmpa_dim=\dimen142
+\l_tmpb_dim=\dimen143
+\g_tmpa_dim=\dimen144
+\g_tmpb_dim=\dimen145
+\c_zero_skip=\skip59
+\c_max_skip=\skip60
+\l_tmpa_skip=\skip61
+\l_tmpb_skip=\skip62
+\g_tmpa_skip=\skip63
+\g_tmpb_skip=\skip64
+\c_zero_muskip=\muskip12
+\c_max_muskip=\muskip13
+\l_tmpa_muskip=\muskip14
+\l_tmpb_muskip=\muskip15
+\g_tmpa_muskip=\muskip16
+\g_tmpb_muskip=\muskip17
+\l_keys_choice_int=\count154
+\l__intarray_loop_int=\count155
+\c__intarray_sp_dim=\dimen146
+\g__intarray_font_int=\count156
+\c__fp_leading_shift_int=\count157
+\c__fp_middle_shift_int=\count158
+\c__fp_trailing_shift_int=\count159
+\c__fp_big_leading_shift_int=\count160
+\c__fp_big_middle_shift_int=\count161
+\c__fp_big_trailing_shift_int=\count162
+\c__fp_Bigg_leading_shift_int=\count163
+\c__fp_Bigg_middle_shift_int=\count164
+\c__fp_Bigg_trailing_shift_int=\count165
+\g__fp_array_int=\count166
+\l__fp_array_loop_int=\count167
+\l__sort_length_int=\count168
+\l__sort_min_int=\count169
+\l__sort_top_int=\count170
+\l__sort_max_int=\count171
+\l__sort_true_max_int=\count172
+\l__sort_block_int=\count173
+\l__sort_begin_int=\count174
+\l__sort_end_int=\count175
+\l__sort_A_int=\count176
+\l__sort_B_int=\count177
+\l__sort_C_int=\count178
+\l__tl_analysis_normal_int=\count179
+\l__tl_analysis_index_int=\count180
+\l__tl_analysis_nesting_int=\count181
+\l__tl_analysis_type_int=\count182
+\l__regex_internal_a_int=\count183
+\l__regex_internal_b_int=\count184
+\l__regex_internal_c_int=\count185
+\l__regex_balance_int=\count186
+\l__regex_group_level_int=\count187
+\l__regex_mode_int=\count188
+\c__regex_cs_in_class_mode_int=\count189
+\c__regex_cs_mode_int=\count190
+\l__regex_catcodes_int=\count191
+\l__regex_default_catcodes_int=\count192
+\c__regex_catcode_L_int=\count193
+\c__regex_catcode_O_int=\count194
+\c__regex_catcode_A_int=\count195
+\c__regex_all_catcodes_int=\count196
+\l__regex_show_lines_int=\count197
+\l__regex_min_state_int=\count198
+\l__regex_max_state_int=\count199
+\l__regex_left_state_int=\count266
+\l__regex_right_state_int=\count267
+\l__regex_capturing_group_int=\count268
+\l__regex_min_pos_int=\count269
+\l__regex_max_pos_int=\count270
+\l__regex_curr_pos_int=\count271
+\l__regex_start_pos_int=\count272
+\l__regex_success_pos_int=\count273
+\l__regex_curr_char_int=\count274
+\l__regex_curr_catcode_int=\count275
+\l__regex_last_char_int=\count276
+\l__regex_case_changed_char_int=\count277
+\l__regex_curr_state_int=\count278
+\l__regex_step_int=\count279
+\l__regex_min_active_int=\count280
+\l__regex_max_active_int=\count281
+\l__regex_replacement_csnames_int=\count282
+\l__regex_match_count_int=\count283
+\l__regex_min_submatch_int=\count284
+\l__regex_submatch_int=\count285
+\l__regex_zeroth_submatch_int=\count286
+\g__regex_trace_regex_int=\count287
+\c_empty_box=\box60
+\l_tmpa_box=\box61
+\l_tmpb_box=\box62
+\g_tmpa_box=\box63
+\g_tmpb_box=\box64
+\l__box_top_dim=\dimen147
+\l__box_bottom_dim=\dimen148
+\l__box_left_dim=\dimen149
+\l__box_right_dim=\dimen150
+\l__box_top_new_dim=\dimen151
+\l__box_bottom_new_dim=\dimen152
+\l__box_left_new_dim=\dimen153
+\l__box_right_new_dim=\dimen154
+\l__box_internal_box=\box65
+\l__coffin_internal_box=\box66
+\l__coffin_internal_dim=\dimen155
+\l__coffin_offset_x_dim=\dimen156
+\l__coffin_offset_y_dim=\dimen157
+\l__coffin_x_dim=\dimen158
+\l__coffin_y_dim=\dimen159
+\l__coffin_x_prime_dim=\dimen160
+\l__coffin_y_prime_dim=\dimen161
+\c_empty_coffin=\box67
+\l__coffin_aligned_coffin=\box68
+\l__coffin_aligned_internal_coffin=\box69
+\l_tmpa_coffin=\box70
+\l_tmpb_coffin=\box71
+\g_tmpa_coffin=\box72
+\g_tmpb_coffin=\box73
+\l__coffin_bounding_shift_dim=\dimen162
+\l__coffin_left_corner_dim=\dimen163
+\l__coffin_right_corner_dim=\dimen164
+\l__coffin_bottom_corner_dim=\dimen165
+\l__coffin_top_corner_dim=\dimen166
+\l__coffin_scaled_total_height_dim=\dimen167
+\l__coffin_scaled_width_dim=\dimen168
+\c__coffin_empty_coffin=\box74
+\l__coffin_display_coffin=\box75
+\l__coffin_display_coord_coffin=\box76
+\l__coffin_display_pole_coffin=\box77
+\l__coffin_display_offset_dim=\dimen169
+\l__coffin_display_x_dim=\dimen170
+\l__coffin_display_y_dim=\dimen171
+\g__file_internal_ior=\read1
+\l__seq_internal_a_int=\count288
+\l__seq_internal_b_int=\count289
+\c__deprecation_minus_one=\count290
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3kernel\l3xdvipdf
+mx.def"
+File: l3xdvipdfmx.def 2019-04-06 v L3 Experimental driver: xdvipdfmx
+\l__driver_internal_box=\box78
+\g__driver_graphics_int=\count291
+\g__driver_pdf_object_int=\count292
+\g__driver_pdf_annotation_int=\count293
+))
+Package: ctex 2019/04/07 v2.4.15 Chinese adapter in LaTeX (CTEX)
+
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3packages/xparse\
+xparse.sty"
+Package: xparse 2019-05-03 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count294
+\g__xparse_grabber_int=\count295
+\l__xparse_m_args_int=\count296
+\l__xparse_v_nesting_int=\count297
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3packages/l3keys2
+e\l3keys2e.sty"
+Package: l3keys2e 2019-05-03 LaTeX2e option processing using LaTeX3 keys
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ctex\ctexhook.sty"
+Package: ctexhook 2019/04/07 v2.4.15 Document and package hooks (CTEX)
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ctex\ctexpatch.sty
+"
+Package: ctexpatch 2019/04/07 v2.4.15 Patching commands (CTEX)
+) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\fix-cm.sty"
+Package: fix-cm 2015/01/14 v1.1t fixes to LaTeX
+ ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ts1enc.def"
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)) ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ms\everysel.sty
+"
+Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
+)
+\l__ctex_tmp_int=\count298
+\l__ctex_tmp_box=\box79
+\l__ctex_tmp_dim=\dimen172
+\g__ctex_section_depth_int=\count299
+\g__ctex_font_size_int=\count300
+
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ctex/config\ctexop
+ts.cfg"
+File: ctexopts.cfg 2019/04/07 v2.4.15 Option configuration file (CTEX)
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ctex/engine\ctex-e
+ngine-xetex.def"
+File: ctex-engine-xetex.def 2019/04/07 v2.4.15 XeLaTeX adapter (CTEX)
+
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/xelatex/xecjk\xeCJK.sty"
+Package: xeCJK 2019/04/07 v3.7.2 Typesetting CJK scripts with XeLaTeX
+
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3packages/xtempla
+te\xtemplate.sty"
+Package: xtemplate 2019-05-03 L3 Experimental prototype document functions
+\l__xtemplate_tmp_dim=\dimen173
+\l__xtemplate_tmp_int=\count301
+\l__xtemplate_tmp_muskip=\muskip18
+\l__xtemplate_tmp_skip=\skip65
+)
+\l__xeCJK_tmp_int=\count302
+\l__xeCJK_tmp_box=\box80
+\l__xeCJK_tmp_dim=\dimen174
+\l__xeCJK_tmp_skip=\skip66
+\g__xeCJK_space_factor_int=\count303
+\l__xeCJK_begin_int=\count304
+\l__xeCJK_end_int=\count305
+\c__xeCJK_CJK_class_int=\XeTeXcharclass1
+\c__xeCJK_FullLeft_class_int=\XeTeXcharclass2
+\c__xeCJK_FullRight_class_int=\XeTeXcharclass3
+\c__xeCJK_HalfLeft_class_int=\XeTeXcharclass4
+\c__xeCJK_HalfRight_class_int=\XeTeXcharclass5
+\c__xeCJK_NormalSpace_class_int=\XeTeXcharclass6
+\c__xeCJK_CM_class_int=\XeTeXcharclass7
+\c__xeCJK_HangulJamo_class_int=\XeTeXcharclass8
+\l__xeCJK_last_skip=\skip67
+\g__xeCJK_node_int=\count306
+\c__xeCJK_CJK_node_dim=\dimen175
+\c__xeCJK_CJK-space_node_dim=\dimen176
+\c__xeCJK_default_node_dim=\dimen177
+\c__xeCJK_default-space_node_dim=\dimen178
+\c__xeCJK_CJK-widow_node_dim=\dimen179
+\c__xeCJK_normalspace_node_dim=\dimen180
+\l__xeCJK_ccglue_skip=\skip68
+\l__xeCJK_ecglue_skip=\skip69
+\l__xeCJK_punct_kern_skip=\skip70
+\l__xeCJK_last_penalty_int=\count307
+\l__xeCJK_last_bound_dim=\dimen181
+\l__xeCJK_last_kern_dim=\dimen182
+\l__xeCJK_widow_penalty_int=\count308
+
+Package xtemplate Info: Declaring object type 'xeCJK/punctuation' taking 0
+(xtemplate)             argument(s) on line 2352.
+
+\l__xeCJK_fixed_punct_width_dim=\dimen183
+\l__xeCJK_mixed_punct_width_dim=\dimen184
+\l__xeCJK_middle_punct_width_dim=\dimen185
+\l__xeCJK_fixed_margin_width_dim=\dimen186
+\l__xeCJK_mixed_margin_width_dim=\dimen187
+\l__xeCJK_middle_margin_width_dim=\dimen188
+\l__xeCJK_bound_punct_width_dim=\dimen189
+\l__xeCJK_bound_margin_width_dim=\dimen190
+\l__xeCJK_margin_minimum_dim=\dimen191
+\l__xeCJK_kerning_total_width_dim=\dimen192
+\l__xeCJK_same_align_margin_dim=\dimen193
+\l__xeCJK_different_align_margin_dim=\dimen194
+\l__xeCJK_kerning_margin_width_dim=\dimen195
+\l__xeCJK_kerning_margin_minimum_dim=\dimen196
+\l__xeCJK_bound_dim=\dimen197
+\l__xeCJK_reverse_bound_dim=\dimen198
+\l__xeCJK_minimum_bound_dim=\dimen199
+\l__xeCJK_kerning_margin_dim=\dimen256
+\l__xeCJK_original_margin_dim=\dimen257
+\g__xeCJK_family_int=\count309
+\l__xeCJK_fam_int=\count310
+\g__xeCJK_fam_allocation_int=\count311
+\l__xeCJK_verb_case_int=\count312
+\l__xeCJK_verb_exspace_skip=\skip71
+
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fontspec\fontspec.
+sty"
+Package: fontspec 2019/03/15 v2.7c Font selection for XeLaTeX and LuaLaTeX
+
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fontspec\fontspec-
+xetex.sty"
+Package: fontspec-xetex 2019/03/15 v2.7c Font selection for XeLaTeX and LuaLaTe
+X
+\l__fontspec_script_int=\count313
+\l__fontspec_language_int=\count314
+\l__fontspec_strnum_int=\count315
+\l__fontspec_tmp_int=\count316
+\l__fontspec_tmpa_int=\count317
+\l__fontspec_tmpb_int=\count318
+\l__fontspec_tmpc_int=\count319
+\l__fontspec_em_int=\count320
+\l__fontspec_emdef_int=\count321
+\l__fontspec_strong_int=\count322
+\l__fontspec_strongdef_int=\count323
+\l__fontspec_tmpa_dim=\dimen258
+\l__fontspec_tmpb_dim=\dimen259
+\l__fontspec_tmpc_dim=\dimen260
+
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\fontenc.sty"
+Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
+
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\tuenc.def"
+File: tuenc.def 2018/08/11 v2.0j Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TU on input line 82.
+))
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fontspec\fontspec.
+cfg")
+LaTeX Info: Redefining \itshape on input line 4051.
+LaTeX Info: Redefining \slshape on input line 4056.
+LaTeX Info: Redefining \scshape on input line 4061.
+LaTeX Info: Redefining \upshape on input line 4066.
+LaTeX Info: Redefining \em on input line 4096.
+LaTeX Info: Redefining \emph on input line 4121.
+))
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/xelatex/xecjk\xeCJK.cfg"
+File: xeCJK.cfg 2019/04/07 v3.7.2 Configuration file for xeCJK package
+))
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/xelatex/xecjk\xeCJKfntef
+.sty"
+Package: xeCJKfntef 2019/04/07 v3.7.2 xeCJK font effect
+ ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ulem\ulem.sty"
+\UL@box=\box81
+\UL@hyphenbox=\box82
+\UL@skip=\skip72
+\UL@hook=\toks30
+\UL@height=\dimen261
+\UL@pe=\count324
+\UL@pixel=\dimen262
+\ULC@box=\box83
+Package: ulem 2012/05/18
+\ULdepth=\dimen263
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/cjk\CJKfntef.sty"
+Package: CJKfntef 2015/04/18 4.8.4
+\CJK@fntefSkip=\skip73
+\CJK@nest=\count325
+\CJK@fntefDimen=\dimen264
+\CJK@underdotBox=\box84
+\CJK@ULbox=\box85
+\CJK@underanyskip=\dimen265
+)
+\l__xeCJK_space_skip=\skip74
+\c__xeCJK_ulem-begin_node_dim=\dimen266
+\c__xeCJK_null_box=\box86
+\l__xeCJK_fntef_box=\box87
+\l__xeCJK_under_symbol_box=\box88
+\c__xeCJK_filll_skip=\skip75
+)
+\ccwd=\dimen267
+\l__ctex_ccglue_skip=\skip76
+)
+\l__ctex_ziju_dim=\dimen268
+
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/zhnumber\zhnumber.
+sty"
+Package: zhnumber 2019/04/07 v2.7 Typesetting numbers with Chinese glyphs
+\l__zhnum_scale_int=\count326
+
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/zhnumber\zhnumber-
+utf8.cfg"
+File: zhnumber-utf8.cfg 2019/04/07 v2.7 Chinese numerals with UTF8 encoding
+))
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ctex/scheme\ctex-s
+cheme-chinese.def"
+File: ctex-scheme-chinese.def 2019/04/07 v2.4.15 Chinese scheme for generic (CT
+EX)
+
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ctex/config\ctex-n
+ame-utf8.cfg"
+File: ctex-name-utf8.cfg 2019/04/07 v2.4.15 Caption with encoding UTF8 (CTEX)
+))
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\indentfirst.
+sty"
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ctex\ctex-c5size.c
+lo"
+File: ctex-c5size.clo 2019/04/07 v2.4.15 c5size option (CTEX)
+)
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ctex/fontset\ctex-
+fontset-windows.def"
+File: ctex-fontset-windows.def 2019/04/07 v2.4.15 Windows fonts definition (CTE
+X)
+
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ctex/fontset\ctex-
+fontset-windowsnew.def"
+File: ctex-fontset-windowsnew.def 2019/04/07 v2.4.15 Windows fonts definition f
+or Vista or later version (CTEX)
+
+Package fontspec Info: Could not resolve font "KaiTi/B" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: Could not resolve font "SimHei/I" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: Could not resolve font "SimSun/BI" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: Font family 'SimSun(0)' created for font 'SimSun' with
+(fontspec)             options
+(fontspec)             [Script={CJK},BoldFont={SimHei},ItalicFont={KaiTi}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"SimSun/OT:script=hani;language=DFLT;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (bx/n) with NFSS spec.:
+(fontspec)             <->"SimHei/OT:script=hani;language=DFLT;"
+(fontspec)             - 'bold small caps'  (bx/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"KaiTi/OT:script=hani;language=DFLT;"
+(fontspec)             - 'italic small caps'  (m/itsc) with NFSS spec.: 
+
+)))
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ctex/config\ctex.c
+fg"
+File: ctex.cfg 2019/04/07 v2.4.15 Configuration file (CTEX)
+) (Template.aux)
+\openout1 = `Template.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+ ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 23.
+
+Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
+(fontspec)             this).
+
+\symlegacymaths=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 23.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 23.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 23.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 23.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 23.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 23.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 23.
+LaTeX Font Info:    Redeclaring math accent \check on input line 23.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 23.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 23.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 23.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 23.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 23.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 23.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 23.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 23.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 23.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 23.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> TU/lmr/bx/n on input line 23.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 23.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 23.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  TU/lmr/m/n --> TU/lmr/bx/n on input line 23.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> TU/lmr/bx/it on input line 23.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 23.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 23.
+LaTeX Font Info:    Try loading font information for U+msa on input line 32.
+
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 32.
+("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+LaTeX Warning: Citation `li' on page 1 undefined on input line 45.
+
+
+LaTeX Warning: Citation `DBLP:journals/taslp/LuLZ06' on page 1 undefined on inp
+ut line 47.
+
+
+LaTeX Warning: Citation `DBLP:conf/ismir/KimSMMRSST10' on page 1 undefined on i
+nput line 47.
+
+
+LaTeX Warning: Citation `DBLP:conf/mm/MayerNR08' on page 1 undefined on input l
+ine 51.
+
+
+LaTeX Warning: Citation `DBLP:conf/ismir/HuDE09' on page 1 undefined on input l
+ine 51.
+
+
+LaTeX Warning: Citation `DBLP:conf/ismir/HuDE09' on page 1 undefined on input l
+ine 55.
+
+
+LaTeX Warning: Citation `DBLP:conf/ismir/HuD10' on page 1 undefined on input li
+ne 55.
+
+
+LaTeX Warning: Citation `DBLP:conf/icmla/LaurierGH08' on page 1 undefined on in
+put line 55.
+
+
+LaTeX Warning: Citation `DBLP:conf/mmm/XueXS15' on page 1 undefined on input li
+ne 55.
+
+
+LaTeX Warning: Citation `DBLP:journals/jmlr/SrivastavaS14' on page 1 undefined 
+on input line 57.
+
+
+LaTeX Warning: Citation `Russell1980' on page 1 undefined on input line 57.
+
+
+LaTeX Warning: Citation `DBLP:conf/ismir/Bertin-MahieuxEWL11' on page 1 undefin
+ed on input line 57.
+
+[1
+
+]
+
+LaTeX Warning: Citation `DBLP:conf/ismir/LiM03' on page 2 undefined on input li
+ne 69.
+
+
+LaTeX Warning: Citation `DBLP:journals/taslp/LuLZ06' on page 2 undefined on inp
+ut line 75.
+
+
+LaTeX Warning: Citation `Yang2012Machine' on page 2 undefined on input line 75.
+
+
+
+LaTeX Warning: Citation `DBLP:journals/taslp/LuLZ06' on page 2 undefined on inp
+ut line 80.
+
+
+LaTeX Warning: Citation `DBLP:conf/ismir/HuDE09' on page 2 undefined on input l
+ine 80.
+
+
+LaTeX Warning: Citation `DBLP:conf/ismir/HuDLBE08' on page 2 undefined on input
+ line 80.
+
+
+LaTeX Warning: Citation `DBLP:conf/isica/HeJXCSZ08' on page 2 undefined on inpu
+t line 80.
+
+
+LaTeX Warning: Citation `DBLP:conf/ismir/HuCY09' on page 2 undefined on input l
+ine 80.
+
+[2]
+
+LaTeX Warning: Citation `DBLP:conf/ismir/HuD10' on page 3 undefined on input li
+ne 98.
+
+
+LaTeX Warning: Citation `DBLP:conf/icmla/LaurierGH08' on page 3 undefined on in
+put line 98.
+
+
+LaTeX Warning: Citation `DBLP:conf/mmm/XueXS15' on page 3 undefined on input li
+ne 98.
+
+
+LaTeX Warning: Citation `DBLP:journals/jmlr/SrivastavaS14' on page 3 undefined 
+on input line 99.
+
+
+LaTeX Warning: Citation `DBLP:journals/jmlr/SalakhutdinovH09' on page 3 undefin
+ed on input line 111.
+
+
+LaTeX Warning: Citation `smolensky1986information' on page 3 undefined on input
+ line 111.
+
+File: figures/bi-modalDBM.pdf Graphic file (type pdf)
+<use figures/bi-modalDBM.pdf>
+
+LaTeX Warning: Citation `DBLP:journals/jmlr/SrivastavaS14' on page 3 undefined 
+on input line 140.
+
+[3]
+Underfull \vbox (badness 1648) has occurred while \output is active []
+
+ [4]
+
+LaTeX Warning: Citation `DBLP:journals/jmlr/SalakhutdinovH09' on page 5 undefin
+ed on input line 169.
+
+
+LaTeX Warning: Citation `DBLP:journals/jmlr/SrivastavaS14' on page 5 undefined 
+on input line 169.
+
+
+LaTeX Warning: Citation `DBLP:conf/ismir/Bertin-MahieuxEWL11' on page 5 undefin
+ed on input line 176.
+
+
+LaTeX Warning: Citation `schindler1' on page 5 undefined on input line 178.
+
+
+LaTeX Warning: Citation `Russell1980' on page 5 undefined on input line 184.
+
+
+LaTeX Warning: Citation `Corona2015An' on page 5 undefined on input line 184.
+
+[5] [6]
+File: figures/map.pdf Graphic file (type pdf)
+<use figures/map.pdf>
+File: figures/acc.pdf Graphic file (type pdf)
+<use figures/acc.pdf>
+ [7]
+
+LaTeX Warning: Citation `Hu2016A' on page 8 undefined on input line 291.
+
+
+LaTeX Warning: Citation `DBLP:journals/jmlr/SrivastavaS14' on page 8 undefined 
+on input line 316.
+
+
+Underfull \vbox (badness 2653) has occurred while \output is active []
+
+ [8]
+No file Template.bbl.
+[9] (Template.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 2844 strings out of 492895
- 37529 string characters out of 3123735
- 108428 words of memory out of 3000000
- 6755 multiletter control sequences out of 15000+200000
- 3640 words of font info for 14 fonts, out of 3000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 29i,0n,25p,262b,36s stack positions out of 5000i,500n,10000p,200000b,50000s
-f:/BUAA/研究方法论/文献综述/Template.tex:21:  ==> Fatal error occurred, no output PDF file produced!
+ 17981 strings out of 427669
+ 389574 string characters out of 3144952
+ 469082 words of memory out of 3000000
+ 21847 multiletter control sequences out of 15000+200000
+ 538641 words of font info for 81 fonts, out of 3000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 54i,19n,68p,1358b,446s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on Template.pdf (9 pages).
