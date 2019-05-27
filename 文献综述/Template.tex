@@ -9,7 +9,7 @@
 \usepackage{graphicx}
 \usepackage[center]{subfigure}
 \usepackage{amssymb}
-\usepackage{graphicx,amsmath} % Add all your packages here
+\usepackage{graphicx,amsmath}
 \usepackage{subfigure}
 \usepackage{algorithm}
 \usepackage{algorithmic}
@@ -24,49 +24,32 @@
 	
 \title{知识表示学习的研究}
 \author{Anonymous}
-\institute{北京航空航天大学计算机学院
-%	\email{\{moyuanhuang, w.rong, jiangnan, xiongz\}@buaa.edu.cn}\\
-%	\and Department of Computer Science, University of Victoria, Victoria, Canada\\
-%	\email{tom.arjannikov@gmail.com}
-}
+\institute{北京航空航天大学计算机学院}
 \maketitle
 
 \begin{abstract}
 
-\keywords{表示学习，知识图谱}
-\end{abstract}
+摘要。
 
-%For example, it can help music applications like last.fm and NetEase cloud Music to properly recommend music based on the moods of the music pieces.
+\keywords{表示学习，知识图谱，知识表示}
+
+\end{abstract}
 
 \section{引言}
 
-%Music is important and influential in everyone's life and one of the essential challenges is to conduct music's emotion classification \cite{DBLP:conf/mm/YangLC06}, which can help proper music recommendation based on the emotion of the music pieces \cite{DBLP:journals/mta/HanRJH10}.
-
-Music plays an important and influential role in most of our lives; for instance, we often listen to specific kinds of music to help enhance or alter our mood, particularly during special occasions (e.g. a romantic dinner, a national sports event, etc). Hence, it is essential that we use information about emotions and mood in music retrieval tasks, such as ~\cite{DBLP:journals/corr/abs-1206-5538} classification and recommendation~\cite{li}. 
-
-To this end, many approaches based on audio analysis were proposed and proved applicable, but they quickly reached a so called ``glass ceiling'' performance barrier~\cite{DBLP:journals/taslp/LuLZ06}. As it became evident that using features based on audio alone is not enough, many researchers started combining features from different domains~\cite{DBLP:conf/ismir/KimSMMRSST10}.
-%Music is important and influential in everyone's life and one of the essential challenges is to conduct music's emotion classification, which can help proper music recommendation based on the emotion of the music pieces \cite{DBLP:conf/mir/McKayF10}. To achieve better performance in music emotion classification, several approaches based on audio features analysis have been proposed with different audio feature selecting strategies \cite{DBLP:journals/taslp/TzanetakisC02}. Though this kind of methods have shown the applicability, many researchers reported that performances achieved by exploiting only audio features have reached a so called ``glass ceiling'' \cite{DBLP:journals/taslp/LuLZ06}.
-%and feature extracting systems\footnote[3]{http://marsyas.info/} for researchers to use.
-%To achieve better performance in music emotion classification, most researchers relied on analysis of audio features\cite{Schindler2012Capturing,Mckinney2003Features,DBLP:journals/taslp/TzanetakisC02}
-One such domain, music lyrics, has become a popular source of features for music emotion and mood classification among other music retrieval tasks. Mayer et al.~\cite{DBLP:conf/mm/MayerNR08} show that, in some emotion categories, when features derived from lyrics are included, the classifier performance improves over using the leading audio features alone. However, Hu et al.~\cite{DBLP:conf/ismir/HuDE09} reveal that this is not true for all of the mood categories. 
-%Though relying solely on lyrics has shown some potential, experimental results on dissimilar datasets are contradictory with regard to the effectiveness of using lyrics \cite{Hu2016A}. Some researches revealed that using lyric features can outperform leading audio features in certain emotion categories \cite{DBLP:conf/mm/MayerNR08}, while others suggest that audio features are more powerful \cite{DBLP:conf/mir/McKayF10}.
-%, which often bear rich semantic information and reflect the thought of the author to some extent
-%Besides, as lyrics often bearing rich semantic information and always reflecting the thought of the author, other researchers focused their attention on lyric-based mood classification. Despite the scarcity of corresponding lyric data, \cite{Corona2015An} compared performances achieved by different term-weighting approaches relying solely on lyrics as a source of information. Due to the using of dissimilar datasets, however, results are contradictory with regard to the effectiveness of using lyric information\cite{Corona2015An,Hu2016A}. \cite{DBLP:conf/ismir/HuD10,DBLP:conf/mm/MayerNR08} shows that lyric features outperform leading audio features in certain categories. \cite{DBLP:conf/mir/McKayF10} suggests that audio feature is more useful than lyric feature. Besides, some of the results may not well illustrate the classification performance as many studies are conducted on relatively small datasets that only contain tens to thousands of songs.
-To further improve the classification performance, some researchers integrate audio features with lyrics together and form hybrid features that could carry information from two different modalities (domains) simultaneously~\cite{DBLP:conf/ismir/HuDE09}. Accordingly different integration strategies (e.g., early fusion \cite{DBLP:conf/ismir/HuD10}, late fusion\cite{DBLP:conf/icmla/LaurierGH08} and model fusion\cite{DBLP:conf/mmm/XueXS15}) are proposed in the literature. %To efficiently combine information of audio and lyric,  All those studies showed certain improvement compared to the performance of unimodal classification, and model fusion seems to yield the best performance.
-
-In this work, we follow the feature fusion model and use a hybrid model based on Multimodal Deep Boltzmann Machine; in addition to fusing different modalities, it is also able make use of unlabelled data to further improve performance~\cite{DBLP:journals/jmlr/SrivastavaS14}. Additionally, we adopt the commonly used Russell's 2-dimensional Valence-Arousal (V-A) model of affect~\cite{Russell1980} to capture the emotional content of music lyrics. To show the effectiveness of our approach, we conduct an experimental study on the largest dataset that is publicly available for music retrieval research, the Million Song Dataset~\cite{DBLP:conf/ismir/Bertin-MahieuxEWL11}, from which we are able to use over 230,000 music tracks that contain both lyric and audio features.  %After trained on the extracted dataset, our model outperformed many baseline methods and achieved state-of-the-art performance.
-
-%and Million Song Dataset Benchmarks\footnote[1]{http://www.ifs.tuwien.ac.at/mir/msd/}
-
-%In this paper, we propose a novel method of fusing the lyric and audio modality through model fusion. We implemented a Multimodal Deep Boltzmann Machine considering its outstanding ability to fuse different modalities and to utilize the large amount of unlabeled data\cite{DBLP:journals/jmlr/SrivastavaS14}.
-
-%The rest of this paper is organized as follows. We will introduce the related work in Section 2. Section 3 will elaborate the proposed Bi-modal Deep Boltzmann Machine and the relevant classifiers. Experimental study will be discussed in Section 4 and Section 5 will conclude this paper.% and point out future work.
+知识图谱可以结构化的表示真实世界中的实体和实体间关系。
 
 \section{知识图谱}
 
-知识图谱是用来表示真实世界中的实体和实体间关系的图结构网络。一个知识图谱由节点和边组成，其中节点代表实体，边代表实体之间的关系。
+知识图谱是用来表示真实世界中的实体和实体间关系的图结构网络。知识图谱由节点和边组成，其中节点代表实体，边代表实体之间的关系，通常用三元组$G=\{E,R,S\}$ 来表示知识图谱，其中$E$ 为实体的集合，$R$ 为关系的集合，$S$ 是实体-关系-实体的三元组集合，即$S\subseteq{E×R×E}$ 。此外，一个实体-关系-实体的三元组也可以表示为$(h,r,t)$ 的格式，其中$h$ 和$t$ 分别代表头实体和尾实体，$r$ 表示头实体和尾实体之间的关系。
 
 \section{知识表示学习}
+
+知识图谱通常以图的形式存储，这种图结构不利于对数据集的进一步研究，更需要设计特定的算法进行相应的计算。因此通常将图结构转化为向量的形式，便于
+
+通过向量表示实体的方法通常有两种，一种使用独热编码构建向量，该方法对一个有n个数据数据集，需要对每个实体使用一个n维向量来表示，向量中只有1维的值为1，其余值均为0。这种方法在数据集较大时效果较差，又由于向量之间两两正交，不仅无法表示向量的语义信息，更无法表示出向量之间的相似程度。另一种则是通过机器学习算法得到每一个实体或关系的低维稠密向量。对于一个词向量，单独拿出一维数据可能毫无意义，但组成向量后却可以表示出相应实体的语义信息，从而通过余弦或距离来表示实体在真实世界的相似程度，这就是表示学习。
+
+知识表示学习，即对知识库的表示学习。通过用低维度的稠密向量来表示知识库中的实体或关系，从而进行进一步的计算。
 
 \section{Related Work}
 %\subsection{Audio-based mood classification}
