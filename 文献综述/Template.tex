@@ -1,6 +1,6 @@
 %-- coding: UTF-8 --
-\documentclass{llncs}
 %
+\documentclass{llncs}
 \usepackage{amsfonts}
 \usepackage{amstext}
 \usepackage{amsmath}
@@ -22,9 +22,9 @@
 %
 \begin{document}
 	
-\title{Title Goes Hear}
+\title{知识表示学习的研究}
 \author{Anonymous}
-\institute{School of Computer Science and Engineering, Beihang University, Beijing, China\\
+\institute{北京航空航天大学计算机学院
 %	\email{\{moyuanhuang, w.rong, jiangnan, xiongz\}@buaa.edu.cn}\\
 %	\and Department of Computer Science, University of Victoria, Victoria, Canada\\
 %	\email{tom.arjannikov@gmail.com}
@@ -32,13 +32,13 @@
 \maketitle
 
 \begin{abstract}
-摘要内容
-\keywords{关键字1, 关键字2, 关键字3}
+
+\keywords{表示学习，知识图谱}
 \end{abstract}
 
 %For example, it can help music applications like last.fm and NetEase cloud Music to properly recommend music based on the moods of the music pieces.
 
-\section{Introduction}
+\section{引言}
 
 %Music is important and influential in everyone's life and one of the essential challenges is to conduct music's emotion classification \cite{DBLP:conf/mm/YangLC06}, which can help proper music recommendation based on the emotion of the music pieces \cite{DBLP:journals/mta/HanRJH10}.
 
@@ -61,6 +61,12 @@ In this work, we follow the feature fusion model and use a hybrid model based on
 %In this paper, we propose a novel method of fusing the lyric and audio modality through model fusion. We implemented a Multimodal Deep Boltzmann Machine considering its outstanding ability to fuse different modalities and to utilize the large amount of unlabeled data\cite{DBLP:journals/jmlr/SrivastavaS14}.
 
 %The rest of this paper is organized as follows. We will introduce the related work in Section 2. Section 3 will elaborate the proposed Bi-modal Deep Boltzmann Machine and the relevant classifiers. Experimental study will be discussed in Section 4 and Section 5 will conclude this paper.% and point out future work.
+
+\section{知识图谱}
+
+知识图谱是用来表示真实世界中的实体和实体间关系的图结构网络。一个知识图谱由节点和边组成，其中节点代表实体，边代表实体之间的关系。
+
+\section{知识表示学习}
 
 \section{Related Work}
 %\subsection{Audio-based mood classification}
@@ -312,7 +318,7 @@ Results are shown in Table \ref{tb:multimood-rst}.
 Our model outperformed other baseline models in every mood category. The moods in $v^{+}a^{-}$ quadrant obtain the highest accuracy. This is interesting given that the $v^{+}a^{-}$ quadrant has the least number of songs. The reason may be that music pieces in this mood group has many unique lyric terms. Between other mood categories, however, there is no significant differences in the classification accuracy. Moreover, the fusion methods' accuracy all outperformed the accuracy of classification on single modality, affirming the effectiveness of multi-modal mood classification in the same way as many prior studies show.
 
 
-\section{Conclusion}% and Future Works}
+\section{结论}% and Future Works}
 In this work, we used a deep learning architecture, inspired by the work of Srivastava and Salakhutdinov~\cite{DBLP:journals/jmlr/SrivastavaS14}, to effectively fuse the audio and text modalities for music mood classification. 
 Results show that fusing modalities is indeed advantageous in the music mood classification task. In addition to including information from other domains/modalities, it would be interesting to see how other lyric derived features perform with this and other multimodal approaches in the music-IR literature, we leave this to our future work.
 %Results show that the bi-modal DBM outperforms than single modality and other multi-modal baseline models across every emotion group. It also showed flexibility towards high dimensional inputs. It is expected that this work can provide insight for future research in this direction.%Besides, we also built a large dataset basing on the Million Song Dataset. As urged by \cite{Corona2015An} and \cite{Hu2016A}, we plan to make our dataset available and add higher level lyric features for deeper analysis by integrating semantic information.
