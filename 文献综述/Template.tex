@@ -37,13 +37,15 @@
 
 \section{引言}
 
-知识图谱是一种可以结构化地表示真实世界中的实体和实体间关系的网络。近年来，大量开源知识图谱，如WordNet、Freebase、Yago的出现，提升了知识图谱模型在真实世界中的表现。本文将针对近年来具有重要意义的知识表示学习模型进行研究和对比，并阐述知识表示学习的一些应用。
+知识图谱是一种可以结构化地表示真实世界中的实体和实体间关系的网络。近年来，大量开源知识图谱，如WordNet\cite{Miller:1995:WLD:219717.219748}、Freebase\cite{Bollacker:2008:FCC:1376616.1376746}和Yago\cite{suchanek2007yago}的出现，提升了知识图谱模型在真实世界中的表现。本文将针对近年来具有重要意义的知识表示学习模型进行研究和对比，并阐述知识表示学习的一些应用。
 
 \section{背景介绍}
 
 \subsection{知识图谱}
 
 知识图谱是用来表示真实世界中的实体和实体间关系的图结构网络。知识图谱由节点和边组成，其中节点代表实体，边代表实体之间的关系，通常用三元组$G=\{E,R,S\}$ 来表示知识图谱，其中$E$ 为实体的集合，$R$ 为关系的集合，$S$ 是实体-关系-实体的三元组集合，即$S\subseteq{E×R×E}$ 。此外，一个实体-关系-实体的三元组也可以表示为$(h,r,t)$ 的格式，其中$h$ 和$t$ 分别代表头实体和尾实体，$r$ 表示头实体和尾实体之间的关系。
+
+知识图谱中比较著名的数据集是WordNet、FreeBase和Yago。其中WordNet数据集是由专家构建的词典知识库，FreeBase数据集则是由志愿者构建的世界知识库，Yago则是一个从半结构化文本中学习出的知识库。
 
 \subsection{知识表示学习}
 
@@ -55,27 +57,21 @@
 
 \section{知识表示学习模型}
 
+\subsection{线性模型}
 
-\section{Bi-Modal Deep Boltzmann Machine Model}
-%\subsection{Deep Boltzmann Machine}
-Deep Boltzmann Machine (DBM) \cite{DBLP:journals/jmlr/SalakhutdinovH09} is a deep neural network architecture based on Restricted Boltzmann Machine \cite{smolensky1986information}. It contains a set of visible units $\mathbf{v}\in {\{0,1\}}^{D}$ and a sequence of layers comprised of hidden units $\mathbf{h}^{(1)}\in {\{0,1\}}^{{F}_{1}},\mathbf{h}^{(2)}\in {\{0,1\}}^{{F}_{2}},...,\mathbf{h}^{(n)}\in {\{0,1\}}^{{F}_{n}}$. The connections are available only between units in adjacent layers, i.e. no connection is allowed between any two units within the same layer or between any two units in non-adjacent layers. %Connections between units in the same layer or between units in non-adjacent layers are disallowed. 
-The energy of the joint configuration $\{\mathbf{v},\mathbf{h}\}$ is defined according to $\mathbf{h=\{h^{(1)},h^{(2)},...,h^{(n)}\}}$ and parameters $\mathbf{\theta=\{\mathbf{W}^{(1)},\mathbf{W}^{(2)},...,\mathbf{W}^{(n)},\mathbf{b},\mathbf{b}^{(1)},\mathbf{b}^{(2)},...,\mathbf{b}^{(n)}\}}$.
-The DBM assigns probability to a set of visible units according to the Boltzmann distribution:
-\begin{equation}
-\label{eq2}
-P(\mathbf{v};\theta)=\frac{1}{\mathit{Z}(\theta)}\sum_{\mathbf{h}}exp(-E(\mathbf{v},\mathbf{h}^{(1)},\mathbf{h}^{(2)};\theta))
-\end{equation}
-where $\mathit{Z}(\theta)$ is the normalising constant.
-%\begin{equation}
-%\label{eq1}
-%\begin{split}
-%E(\mathbf{v},\mathbf{h};\theta)=-\sum_{i=1}^{D}\sum_{j=1}^{F_{1}} %&v_{i}W_{ij}^{(1)}h_{j}^{(1)}-\sum_{j=1}^{F_{1}}\sum_{l=1}^{F_{2}}W_{jl}^{(2)}h_{j}^{(1)}h_{l}^{(2)} \\
-%&-\sum_{i=1}^{D}b_{i}v_{i}-\sum_{j=1}^{F_{1}}b_{j}^{(1)}h_{j}^{(1)}-\sum_{l=1}^{F_{2}}b_{l}^{(2)}h_{l}^{(2)}
-%\end{split}
-%\end{equation}
-%$$E(\mathbf{v},\mathbf{h};\theta)=-\sum_{i=1}^{D}\sum_{j=1}^{F}v_{i}W_{ij}h_{j}-\sum_{i=1}^{D}b_{i}v_{i}-\sum_{j=1}^{F}a_{j}h_{j}$$
+结构表示模型（Structured Embeddings，SE）\cite{DBLP:conf/aaai/BordesWCB11}是典型的线性模型。对于知识图谱中的第$k$ 个头实体-关系-尾实体三元组中，SE通过将实体表征为一个d维（约50维）的词向量，将关系$R_k$ 构造成两个关系矩阵$R^{lhs}_k$ 和$R^{rhs}_k$ ，并定义了如下的损失函数：
 
-%\subsection{Bi-Modal Deep Boltzmann Machine Model for Music Emotion Classification}
+\begin{displaymath}
+S_k(E_i,E_j)=||R^{lhs}_kEi-R^{rhs}_kE_j||_p
+\end{displaymath}
+
+在SE模型中，	取范数$p=1$ ，此时损失函数为：
+
+\begin{displaymath}
+S_k(E_i,E_j)=\sum_{x=1}^d{S_k(E_i,E_j)_x}
+\end{displaymath}
+
+即将头实体的词向量和尾实体的词向量分别用一个关系矩阵投影，投影后的距离越小，头实体和尾实体的越有可能存在该种关系。但我们也可以看到，通过两个关系矩阵来定义一种关系，
 
 \begin{figure}
 	\centering

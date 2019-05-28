@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.5.22)  28 MAY 2019 17:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.5.22)  28 MAY 2019 18:18
 entering extended mode
 **F:/BUAA/研究方法论/文献综述/Template.tex
 (F:/BUAA/研究方法论/文献综述/Template.tex
@@ -957,121 +957,121 @@ G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 ) ABD: EverySelectfont initializing macros
 LaTeX Info: Redefining \selectfont on input line 23.
-LaTeX Font Info:    Try loading font information for C70+rm on input line 28.
+LaTeX Font Info:    Try loading font information for C70+rm on input line 29.
 
 ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ctex/fd\c70rm.fd"
 File: c70rm.fd 2019/04/07 v2.4.15 Chinese font definition (CTEX)
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 28.
+LaTeX Font Info:    Try loading font information for U+msa on input line 29.
 ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 28.
+LaTeX Font Info:    Try loading font information for U+msb on input line 29.
 ("C:\Users\14114\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 Package CJKpunct Info: use punctuation spaces for family 'rm' with punctstyle (
-quanjiao) on input line 32.
+quanjiao) on input line 33.
 [1
 
 ]
 
 LaTeX Warning: Citation `DBLP:journals/jmlr/SalakhutdinovH09' on page 2 undefin
-ed on input line 61.
+ed on input line 67.
 
 
 LaTeX Warning: Citation `smolensky1986information' on page 2 undefined on input
- line 61.
+ line 67.
 
-
+[2]
 
 pdfTeX warning: pdflatex (file ./figures/bi-modalDBM.pdf): PDF inclusion: found
  PDF version <1.6>, but at most version <1.5> allowed
-<figures/bi-modalDBM.pdf, id=150, 498.86375pt x 359.3425pt>
+<figures/bi-modalDBM.pdf, id=165, 498.86375pt x 359.3425pt>
 File: figures/bi-modalDBM.pdf Graphic file (type pdf)
 <use figures/bi-modalDBM.pdf>
-Package pdftex.def Info: figures/bi-modalDBM.pdf  used on input line 82.
+Package pdftex.def Info: figures/bi-modalDBM.pdf  used on input line 88.
 (pdftex.def)             Requested size: 173.56177pt x 125.02057pt.
 
-LaTeX Warning: Citation `DBLP:journals/jmlr/SrivastavaS14' on page 2 undefined 
-on input line 90.
+LaTeX Warning: Citation `DBLP:journals/jmlr/SrivastavaS14' on page 3 undefined 
+on input line 96.
 
-[2] [3 <./figures/bi-modalDBM.pdf>]
+
+Underfull \vbox (badness 1642) has occurred while \output is active []
+
+ [3 <./figures/bi-modalDBM.pdf>]
 
 LaTeX Warning: Citation `DBLP:journals/jmlr/SalakhutdinovH09' on page 4 undefin
-ed on input line 119.
+ed on input line 125.
 
 
 LaTeX Warning: Citation `DBLP:journals/jmlr/SrivastavaS14' on page 4 undefined 
-on input line 119.
+on input line 125.
 
 
 LaTeX Warning: Citation `DBLP:conf/ismir/Bertin-MahieuxEWL11' on page 4 undefin
-ed on input line 126.
+ed on input line 132.
 
 
-LaTeX Warning: Citation `schindler1' on page 4 undefined on input line 128.
+LaTeX Warning: Citation `schindler1' on page 4 undefined on input line 134.
+
+[4]
+
+LaTeX Warning: Citation `Russell1980' on page 5 undefined on input line 140.
 
 
-LaTeX Warning: Citation `Russell1980' on page 4 undefined on input line 134.
+LaTeX Warning: Citation `Corona2015An' on page 5 undefined on input line 140.
 
-
-LaTeX Warning: Citation `Corona2015An' on page 4 undefined on input line 134.
-
-[4] [5]
-<figures/map.pdf, id=296, 361.35pt x 216.81pt>
+[5]
+<figures/map.pdf, id=299, 361.35pt x 216.81pt>
 File: figures/map.pdf Graphic file (type pdf)
 <use figures/map.pdf>
-Package pdftex.def Info: figures/map.pdf  used on input line 218.
+Package pdftex.def Info: figures/map.pdf  used on input line 224.
 (pdftex.def)             Requested size: 171.82445pt x 103.09499pt.
-<figures/acc.pdf, id=297, 361.35pt x 216.81pt>
+<figures/acc.pdf, id=300, 361.35pt x 216.81pt>
 File: figures/acc.pdf Graphic file (type pdf)
 <use figures/acc.pdf>
-Package pdftex.def Info: figures/acc.pdf  used on input line 219.
+Package pdftex.def Info: figures/acc.pdf  used on input line 225.
 (pdftex.def)             Requested size: 171.82445pt x 103.09499pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [6 <./figures/map.pdf> <./figures/acc.pdf
 
 pdfTeX warning: pdflatex (file ./figures/acc.pdf): PDF inclusion: multiple pdfs
  with page group included in a single page
 >]
 
-LaTeX Warning: Citation `Hu2016A' on page 7 undefined on input line 241.
+LaTeX Warning: Citation `Hu2016A' on page 7 undefined on input line 247.
 
+[7]
 
-LaTeX Warning: Citation `DBLP:journals/jmlr/SrivastavaS14' on page 7 undefined 
-on input line 266.
+LaTeX Warning: Citation `DBLP:journals/jmlr/SrivastavaS14' on page 8 undefined 
+on input line 272.
 
-
-Underfull \vbox (badness 2707) has occurred while \output is active []
-
- [7]
-(Template.bbl
-
-LaTeX Warning: Empty `thebibliography' environment on input line 5.
-
-) [8] (Template.aux)
+(Template.bbl [8]) [9] (Template.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 17739 strings out of 492895
- 319211 string characters out of 3123735
- 347837 words of memory out of 3000000
- 21174 multiletter control sequences out of 15000+200000
- 575851 words of font info for 185 fonts, out of 3000000 for 9000
+ 17785 strings out of 492895
+ 319938 string characters out of 3123735
+ 345849 words of memory out of 3000000
+ 21211 multiletter control sequences out of 15000+200000
+ 577201 words of font info for 190 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,19n,63p,1394b,350s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/s
-imhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS
+imhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS
 /Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:
 /WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun
 .ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Font
 s/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WIND
 OWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc>
-<C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/sim
+<C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/sim
 hei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/F
-onts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/W
+onts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/W
 INDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.t
 tc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/
 simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOW
@@ -1080,46 +1080,47 @@ S/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C
 n.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fon
 ts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WIN
 DOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc
-><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/si
-msun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/
+><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/si
+mhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/
 Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/
-WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.
-ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts
-/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDO
-WS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><
+WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.
+ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts
+/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDO
+WS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><
 C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/sims
 un.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fo
-nts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WI
-NDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.tt
+nts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WI
+NDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.tt
 f><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/s
 imhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS
-/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/Users/14114/AppData/Local/Pr
-ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/14114/App
-Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Us
-ers/14114/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx
-5.pfb><C:/Users/14114/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmbx7.pfb><C:/Users/14114/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmbx9.pfb><C:/Users/14114/AppData/Local/Programs/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/14114/AppData/Local/Progra
-ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/14114/AppData
-/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/1
-4114/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb
-><C:/Users/14114/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmmi9.pfb><C:/Users/14114/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmr10.pfb><C:/Users/14114/AppData/Local/Programs/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/14114/AppData/Local/Programs/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/14114/AppData/Local/Pr
-ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/14114/AppDa
-ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/
-14114/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.p
-fb><C:/Users/14114/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmsy6.pfb><C:/Users/14114/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmsy7.pfb><C:/Users/14114/AppData/Local/Programs/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/14114/AppData/Local/Programs/
-MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Template.pdf (8 pages, 875799 bytes).
+/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:
+/WINDOWS/Fonts/simhei.ttf><C:/Users/14114/AppData/Local/Programs/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/14114/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/14114/AppData/Loc
+al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx5.pfb><C:/Users/14114
+/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:
+/Users/14114/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mbx9.pfb><C:/Users/14114/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmex10.pfb><C:/Users/14114/AppData/Local/Programs/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmmi10.pfb><C:/Users/14114/AppData/Local/Programs/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/14114/AppData/Local/Pr
+ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/14114/AppD
+ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/User
+s/14114/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.
+pfb><C:/Users/14114/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmr5.pfb><C:/Users/14114/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmr6.pfb><C:/Users/14114/AppData/Local/Programs/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/14114/AppData/Local/Programs/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/14114/AppData/Local/P
+rograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/14114/Ap
+pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Us
+ers/14114/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
+7.pfb><C:/Users/14114/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmti10.pfb><C:/Users/14114/AppData/Local/Programs/MiKTeX 2.9/fonts/type
+1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Template.pdf (9 pages, 891726 bytes).
 PDF statistics:
- 647 PDF objects out of 1000 (max. 8388607)
+ 659 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 260 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 264 words of extra memory for PDF output out of 10000 (max. 10000000)
 

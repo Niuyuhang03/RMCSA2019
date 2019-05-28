@@ -1,5 +1,9 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: Template.aux
-The style file: splncs03.bst
+The style file: plain.bst
+Illegal, another \bibstyle command---line 40 of file Template.aux
+ : \bibstyle
+ :          {splncs03}
+I'm skipping whatever remains of this command
 Database file #1: reference.bib
 Warning--I didn't find a database entry for "DBLP:journals/jmlr/SalakhutdinovH09"
 Warning--I didn't find a database entry for "smolensky1986information"
@@ -9,4 +13,4 @@ Warning--I didn't find a database entry for "schindler1"
 Warning--I didn't find a database entry for "Russell1980"
 Warning--I didn't find a database entry for "Corona2015An"
 Warning--I didn't find a database entry for "Hu2016A"
-(There were 8 warnings)
+(There was 1 error message)
