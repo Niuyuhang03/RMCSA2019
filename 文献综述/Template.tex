@@ -21,7 +21,7 @@
 \usepackage[UTF8]{ctex}
 %
 \begin{document}
-	
+
 \title{知识表示学习模型的研究}
 \author{Anonymous}
 \institute{北京航空航天大学计算机学院}
@@ -37,234 +37,87 @@
 
 \section{引言}
 
-知识图谱是一种可以结构化地表示真实世界中的实体和实体间关系的网络。近年来，大量开源知识图谱，如WordNet\cite{Miller:1995:WLD:219717.219748}、Freebase\cite{Bollacker:2008:FCC:1376616.1376746}和Yago\cite{suchanek2007yago}的出现，提升了知识图谱模型在真实世界中的表现。本文将针对近年来具有重要意义的知识表示学习模型进行研究和对比，并阐述知识表示学习的一些应用。
+知识图谱是一种可以结构化地表示真实世界中的实体和实体间关系的网络，广泛应用于搜索引擎等领域。近年来，大量开源知识图谱，如 WordNet\cite{Miller:1995:WLD:219717.219748} 、 Freebase\cite{Bollacker:2008:FCC:1376616.1376746} 和 Yago\cite{suchanek2007yago} 的出现，验证了知识图谱模型在真实世界数据集中的表现。而知识表示学习\cite{DBLP:journals/corr/abs-1812-10901}，则是将知识图谱中的实体和关系用词向量的形式来表示，使得知识图谱相关研究不必拘束于图的算法。本文将针对近年来具有重要意义的知识表示学习模型进行研究和对比，并介绍知识表示学习的相关应用。
 
 \section{背景介绍}
 
 \subsection{知识图谱}
 
-知识图谱是用来表示真实世界中的实体和实体间关系的图结构网络。知识图谱由节点和边组成，其中节点代表实体，边代表实体之间的关系，通常用三元组$G=\{E,R,S\}$ 来表示知识图谱，其中$E$ 为实体的集合，$R$ 为关系的集合，$S$ 是实体-关系-实体的三元组集合，即$S\subseteq{E×R×E}$ 。此外，一个实体-关系-实体的三元组也可以表示为$(h,r,t)$ 的格式，其中$h$ 和$t$ 分别代表头实体和尾实体，$r$ 表示头实体和尾实体之间的关系。
+知识图谱是用来表示真实世界中的实体和实体间关系的图结构网络，由节点和边组成，其中节点代表实体，边代表实体之间的关系，通常用三元组 $G=\{E,R,S\}$ 来表示知识图谱，其中 $E$ 为实体的集合， $R$ 为关系的集合， $S$ 是实体-关系-实体的三元组集合，即 $S\subseteq{E×R×E}$ 。此外，一个实体-关系-实体的三元组也可以表示为 $(h,r,t)$ 的格式，其中 $h$ 和 $t$ 分别代表头实体和尾实体， $r$ 表示头实体和尾实体之间的关系。
 
-知识图谱中比较著名的数据集是WordNet、FreeBase和Yago。其中WordNet数据集是由专家构建的词典知识库，FreeBase数据集则是由志愿者构建的世界知识库，Yago则是一个从半结构化文本中学习出的知识库。
+著名知识图谱开源数据集有 WordNet 、 FreeBase 和 Yago 等。其中 WordNet 数据集是由专家构建的词典知识库， FreeBase 数据集则是由志愿者构建的世界知识库，包含人物、地点、分类等信息， Yago 则是一个从半结构化文本中学习出的知识库。知识表示学习的相关算法，大多基于 WordNet 和 FreeBase 进行验证。但在 ConvE 模型\cite{DBLP:conf/aaai/DettmersMS018}中发现，这两个数据集的子集 FB15K 和 WN18 存在严重的测试集泄漏问题，即对于某个训练集中的三元组，反转其头实体和尾实体，就可以在测试集中找到相同的数据。故在此后的研究中，普遍使用去除泄漏数据的 FB15K-237 和 WN18-RR 数据集进行训练、验证和预测。
 
 \subsection{知识表示学习}
 
 知识图谱通常以图的形式存储，这种图结构不仅不利于对知识图谱的进一步研究，更需要设计特定的算法进行相应的计算。因此通常将图结构转化为向量的形式，便于更加高效的解决知识图谱领域的关系提取、关系预测、实体预测等问题。
 
-通过向量表示实体的方法通常有两种。在传统方法中，采用独热编码来构建向量。对一个有n个实体数据集，需要对每个实体使用一个n维向量来表示。每个向量中只有1维的值为1，其余值均为0。这种方法随着数据集规模的增加，向量维数过大。又由于向量之间两两正交，不仅无法表示出实体的语义信息，更无法表示实体之间的相似程度。另一种构建词向量的方法则是通过机器学习算法，得到每一个实体或关系的低维稠密向量。对于一个词向量，单独拿出一维数值可能毫无意义，但组成词向量后却可以表示出相应实体的语义信息，从而通过余弦或距离来表示实体在真实世界的相似程度，这就是表示学习。
+通过向量表示实体的方法通常有两种。在传统方法中，采用独热编码来构建向量。对一个有n个实体数据集，需要对每个实体使用一个n维向量来表示。每个向量中只有1维的值为1，其余值均为0。这种方法存在明显的问题：随着数据集规模的增加，向量维数过大；又由于向量之间两两正交，不仅无法表示出实体的语义信息，更无法表示实体之间的相似程度。另一种构建词向量的方法则是通过机器学习算法，得到每一个实体的低维稠密向量。对于一个词向量而言，单独拿出一维数值可能毫无意义，但组成词向量后却可以表示出相应实体的语义信息，这就是表示学习。
 
-所谓知识表示学习，即对知识库运用表示学习方法。通过用低维度的稠密向量来表示知识库中的实体或关系，从而进行进一步的计算。常用的知识表示学习模型有线性模型、神经网络模型、翻译模型等。
+所谓知识表示学习，即对知识库运用表示学习的方法。通过用低维度的稠密向量来表示知识库中的实体或关系，从而进行实体预测、实体分类、语义相似性分析等工作。常用的知识表示学习模型可以分为线性模型、神经网络模型、翻译模型等。
 
 \section{知识表示学习模型}
 
-\subsection{线性模型}
+\subsection{距离模型及其扩展模型}
 
-结构表示模型（Structured Embeddings，SE）\cite{DBLP:conf/aaai/BordesWCB11}是典型的线性模型。对于知识图谱中的第$k$ 个头实体-关系-尾实体三元组中，SE通过将实体表征为一个d维（约50维）的词向量，将关系$R_k$ 构造成两个关系矩阵$R^{lhs}_k$ 和$R^{rhs}_k$ ，并定义了如下的损失函数：
-
+结构表示模型（Structured Embeddings，SE）\cite{DBLP:conf/aaai/BordesWCB11}是最经典的线性模型， SE 模型也被称为距离模型。对于知识图谱中的一个头实体-尾实体-关系三元组 $\{E_h, E_t, R_k\}$ ， SE 模型通过将第 $x$ 个实体 $E_x$ 表征为一个 $d$ 维（约50维）的词向量 $l_x$ ，将第 $k$ 个关系 $R_k$ 构造成两个 $d×d$ 维的投影矩阵 $W^h_k$ 和 $W^t_k$ ，并定义了如下的损失函数来计算实体之间的语义相关性：
 \begin{displaymath}
-S_k(E_i,E_j)=||R^{lhs}_kEi-R^{rhs}_kE_j||_p
+S_k(E_h,E_t)=||W^h_kl_h-W^t_kl_t||_p
+\end{displaymath}
+在 SE 模型中，取范数 $p=1$ ，此时损失函数为：
+\begin{displaymath}
+S_k(E_h,E_t)=\sum_{x=1}^d{S_k(E_h,E_t)_x}
+\end{displaymath}
+即将头实体和尾实体的词向量分别用一个投影矩阵投影，投影后的距离为投影后得到的向量差按位相加的结果。 SE 模型认为，实体投影后的距离越小，头实体和尾实体的越有可能存在该种关系。因此只需不断迭代使得损失函数最小，求出实体向量 $l$ 和投影矩阵 $W$ 两个参数的最优值。应用在实体预测时，只需通过头实体词向量和两个关系矩阵，即可计算出尾实体映射在该关系空间中的词向量。由于损失函数采用 $L1$ 范数， SE 模型又被称为距离模型。
+
+但使用两个投影矩阵来定义一种关系，很难直观的表征出实体之间的关系。在现实世界中，实体 king 与 queen 之间的关系，应该和实体 man 与 woman 的关系有一定联系。换言之，这两个关系向量应该具有某种相似性。但 SE 模型通过两个投影矩阵来表示一种联系后，很难反映出其中的语义联系。此后出现的单层感知机模型（Single Layer Model，SLM）\cite{DBLP:conf/nips/SocherCMN13}和多层感知机模型（Multi Layer Perceptron，MLP）\cite{DBLP:conf/kdd/0001GHHLMSSZ14}，试图在 SE 模型的基础上解决这个问题。 SLM 模型采用了和 SE 模型一样的两个投影矩阵，其评价函数为：
+\begin{displaymath}
+g(E_h,E_t,R_k)=u_k^Ttanh(W^h_kl_h+W^t_kl_t)
+\end{displaymath}
+其中 $u_k$ 为关系 $R_k$ 相关的参数。而 MLP 模型可以看作在 SLM 模型的基础上引入多个隐藏层的结果。 SLM 模型和 MLP 模型并非线性模型，而是利用神经网络进行计算，由此带来了挖掘实体和关系之间隐含语义联系的可能性，一定程度上解决了 SE 模型中无法计算实体之间和关系之间的语义联系的问题，但与此同时也大幅提高了参数计算的复杂度。
+
+为了进一步解决距离模型中，使用两个投影矩阵无法直观表现关系之间的语义联系的问题，出现了双线性模型。所谓双线性，即头实体向量 $l_h$ 或尾实体向量 $l_t$ 都可以通过一个关系矩阵的线性变换得到对方。隐变量模型（Latent Factor Model，LFM）\cite{DBLP:conf/nips/JenattonRBO12}和DistMult模型\cite{DBLP:journals/corr/YangYHGD14a}就是双线性模型的代表。 LFM 模型可以直观的通过其评价函数来理解：
+\begin{displaymath}
+g(E_h,E_t,R_k)=l_h^TW_kl_t^T
 \end{displaymath}
 
-在SE模型中，	取范数$p=1$ ，此时损失函数为：
+张量神经网络模型（Neural Tensor Networks，NTN）\cite{DBLP:conf/nips/SocherCMN13}则是双线性模型和神经网络模型的结合。
 
-\begin{displaymath}
-S_k(E_i,E_j)=\sum_{x=1}^d{S_k(E_i,E_j)_x}
-\end{displaymath}
+\subsection{翻译模型及其扩展模型}
 
-即将头实体的词向量和尾实体的词向量分别用一个关系矩阵投影，投影后的距离越小，头实体和尾实体的越有可能存在该种关系。但我们也可以看到，通过两个关系矩阵来定义一种关系，
+\subsection{其它模型}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.5\columnwidth]{figures/bi-modalDBM}
-	%  \setlength{\abovecaptionskip}{0pt}
-	%  \setlength{\belowcaptionskip}{-20pt}
-	\caption{Bi-modal Deep Boltzmann Machine}
-	\label{fg:DBM}
-\end{figure}
+% \begin{figure}
+% 	\centering
+% 	\includegraphics[width=0.5\columnwidth]{figures/bi-modalDBM}
+% 	%  \setlength{\abovecaptionskip}{0pt}
+% 	%  \setlength{\belowcaptionskip}{-20pt}
+% 	\caption{Bi-modal Deep Boltzmann Machine}
+% 	\label{fg:DBM}
+% \end{figure}
 
-%We here mainly utilize second and third features of the multimodal DBM.
-Multimodal DBM is a generative model for that can create fused representations by combining features from different modalities in a model fusion scheme~\cite{DBLP:journals/jmlr/SrivastavaS14}. %There are 3 main usages of multi-modal DBM: 1) Generating missing modalities; 2) Inferring joint representations; and 3) Discriminative tasks. After a greedy layer-wise pretraining stage \cite{DBLP:journals/jmlr/SalakhutdinovH09}, variational inference are used to approximate posterior $Q(\mathbf{h}^{(3)}|\mathbf{v}_{a}, \mathbf{v}_{t})$ and to obtain the joint representation of the multi-modal inputs. Softmax classifiers and Support Vector machine can then be trained with these fine-grained representations to do mood classifications. Note that 1) can also be exploited in the pre-training stage of our model, which makes the it an ideal model for classification in music moods.
-Fig. \ref{fg:DBM} illustrates the proposed audio-text aware bi-modal DBM architecture; it consists of two 2-layer DBM networks, with an additional layer of hidden units added on top to join the two DBMs and form a single model. 
-
-Let $\mathbf{v}_{a}\in\mathbb{R}^{D}$ denote the audio input and $\mathbf{v}_{t}\in\mathbb{R}^{K}$ denote the text input, where $K,D\in\mathbb{R}$ is the dimension of audio and text features. Then, the joint distribution of bi-modal input can be then written as:
-\begin{equation}\label{eq3}
-\begin{split}
-P(\mathbf{v}_{a},\mathbf{v}_{t};\theta)=\sum_{\mathbf{h}_{\mathbf{a}}^{(2)},\mathbf{h}_{\mathbf{t}}^{(2)},\mathbf{h}^{(3)}} &P(\mathbf{h}_{\mathbf{a}}^{(2)},\mathbf{h}_{\mathbf{t}}^{(2)},\mathbf{h}^{(3)})\left(\sum_{\mathbf{h}_{\mathbf{a}}^{(1)}}P(\mathbf{v}_{a},\mathbf{h}_{\mathbf{a}}^{(1)}\mid \mathbf{h}_{\mathbf{a}}^{(2)})\right) \\
-& \left(\sum_{\mathbf{h}_{\mathbf{t}}^{(1)}}P(\mathbf{v}_{t},\mathbf{h}_{\mathbf{t}}^{(1)}\mid \mathbf{h}_{\mathbf{t}}^{(2)})\right)
-\end{split}
-\end{equation}
-
-The second term in~Eq. \ref{eq3} denotes the probability distribution of the audio modality, which assigns probability to $\mathbf{v}_{a}$ in a Gaussian RBM scheme:
-\begin{equation}
-\begin{split}\label{al1}
-P(\mathbf{v}_{\mathbf{a}};\theta_{a}) &= \sum_{\mathbf{h}_{\mathbf{a}}^{(1)},\mathbf{h}_{\mathbf{a}}^{(2)}}P(\mathbf{v}_{\mathbf{a}},\mathbf{h}_{\mathbf{a}}^{(2)},\mathbf{h}_{\mathbf{a}}^{(1)};\theta_{a}) \\
-&= \frac{1}{\mathit{Z}(\theta_{a})}\sum_{\mathbf{h}_{\mathbf{a}}^{(1)},\mathbf{h}_{\mathbf{a}}^{(2)}}exp\left(-\sum_{i}\frac{{(v_{\mathbf{a}i}-b_{\mathbf{a}i})}^{2}}{2\sigma_{i}^{2}}+\sum_{ij}\frac{v_{\mathbf{a}i}}{\sigma_{i}}W_{\mathbf{a}ij}^{(1)}h_{\mathbf{a}j}^{(1)}+\right. \\
-&\left.\qquad\sum_{jl}W_{\mathbf{a}jl}^{(1)}h_{\mathbf{a}j}^{(1)}h_{\mathbf{a}l}^{(2)}+\sum_{j}b_{\mathbf{a}j}^{(1)}h_{\mathbf{a}j}^{(1)}+\sum_{l}b_{\mathbf{a}l}^{(2)}h_{\mathbf{a}l}^{(2)}\right)
-\end{split}
-\end{equation}
-
-The third term in~Eq. \ref{eq3} denotes the probability distribution of the text modality, where $\mathbf{v\in \mathbb{N}^{k}}$ denotes a vector of visible units and each ${v}_{k}$ is the number of times word $k$ occurs in the lyrics with the dictionary size $M$. The model assigns probability to $\mathbf{v}_{t}$ in a Replicated Softmax RBM scheme:
-\begin{equation}
-\begin{split}\label{al2}
-P(\mathbf{v}_{\mathbf{t}};\theta_{t}) &= \sum_{\mathbf{h}_{\mathbf{t}}^{(1)},\mathbf{h}_{\mathbf{t}}^{(2)}}P(\mathbf{v}_{\mathbf{t}},\mathbf{h}_{\mathbf{t}}^{(2)},\mathbf{h}_{\mathbf{t}}^{(1)};\theta_{t}) \\
-&= \frac{1}{\mathit{Z}_{M}(\theta_{t})}\sum_{\mathbf{h}_{\mathbf{t}}^{(1)},\mathbf{h}_{\mathbf{t}}^{(2)}}exp\left(\sum_{jk}W_{\mathbf{t}k,j}^{(1)}h_{\mathbf{t}j}^{(1)}v_{\mathbf{t}k}+\sum_{jl}W_{\mathbf{t}jl}^{(2)}h_{\mathbf{t}j}^{(1)}h_{\mathbf{t}l}^{(2)}+\right. \\
-&\left.\qquad\sum_{k}b_{\mathbf{t}k}v_{\mathbf{t}k}+M\sum_{j}b_{\mathbf{t}j}^{(1)}h_{\mathbf{t}j}^{(1)}+\sum_{l}b_{\mathbf{t}l}^{(2)}h_{\mathbf{t}l}^{(2)}\right)
-\end{split}
-\end{equation}
-
-The parameters of DBM can be initialised randomly. However, here we use a greedy layer-wise pre-training strategy~\cite{DBLP:journals/jmlr/SalakhutdinovH09,DBLP:journals/jmlr/SrivastavaS14}. %by learning a stack of modified Restricted Boltzmann Machines, which enables the DBM to perform much better~\cite{DBLP:journals/jmlr/SalakhutdinovH09,DBLP:journals/jmlr/SrivastavaS14}.
-
-\section{Experimental Study}
-%\subsection{Dataset Configuration}
-%along with rich music metadata.
-In our experiments, we use 
-% perform the experiment on a dataset derived from MusixMatch%\footnote[1]{https://www.musixmatch.com/}, a subset of
-the largest publicly available music dataset, the Million Song Dataset (MSD)~\cite{DBLP:conf/ismir/Bertin-MahieuxEWL11}. %which consists of approximately 1,000,000 music tracks. 
-It is a conglomeration of several datasets containing different information about the tracks; we use two of its subsets. First, MusiXmatch, contains information about the lyrics,	  %Rich audio-derived features such as Mel Frequency Cepstral Coefficients (MFCC), Statistical Spectrum Descriptors (SSD) and Rhythm Patterns (RP) are found in the MSD Benchmarks. %\footnote[1]{http://www.ifs.tuwien.ac.at/mir/msd/}.
-each song is described as a set of words from the recorded top 5,000 frequent words across all lyrics. Second, Last.fm, contains annotations obtained from music listeners in a form of tags, like ``happy'' and ``upbeat''; from it, we select tracks that are described by emotion related tags. Additionally, we obtain already pre-extracted audio-based features from the MSD Benchmarking dataset, which is an extension of MSD and was created for the purposes of comparing different approaches while maintaining invariability in various experimental parameters~\cite{schindler1}. To capture both modalities, in our experiments, each music track is represented by both lyrics (found in MusiXmatch dataset) and audio-based features (from MSDB dataset), there are 236,486 tracks that satisfy these conditions. 
-
-
-Initially, to test the validity of our approach, we select only the tracks that contain ``happy'' and ``sad'' tags. After removing ambiguous tracks that contain both tags, we obtain 7,945 ``happy'' songs and 5,840 ``sad'' tracks. To avoid classifier bias due to class imbalance, we perform random subsampling and then conduct a binary emotion classification experiment. %(described later in this section).
-
-% both audio features and lyrics are selected to constitute the dataset. In text modality, each song is described as a set of words from the recorded top 5,000 frequent words across all lyrics. Afterwards, Last.fm\footnote[2]{http://www.last.fm/} is used to extract emotional tags for the songs in the dataset. However,
-In a multi-class scenario, some songs may cover a variety of emotions, rendering the representation by independent dimensions inadequate. For this reason, we employ Russell's Valence-Arousal model~\cite{Russell1980} and follow Corona's and O'Mahony's scheme of selecting social tags that clearly indicate the song's emotional trend~\cite{Corona2015An}. %We find that some tags describe no more than a hundred songs and are not suitable for training a classifier, we then merged such tags into one single group,
-We group the tags according to their quadrants in the Valence-Arousal model and report the final number of tracks tagged by each emotion group in Table \ref{tb:clas-scheme}. We use the tracks that have the emotion-related tags as labelled data for training the classifier, and the remainder as unlabelled data for unsupervised pre-training. % stage described in Section 3. 
-Our final dataset contains 41,727 labelled and 194,759 unlabelled tracks.%, with labeled data account for 17.6\% of the whole data.
-
-%Among the 237,663 songs from MusixMatch, 236,486 songs which contains both audio features and lyrics are selected to constitute the dataset. In text modality, each song is described as a set of words from the recorded top 5,000 frequent words across all lyrics. Afterwards, Last.fm\footnote[2]{http://www.last.fm/} is used to extract emotional tags for the songs in the dataset. However, some songs may cover a variety of emotion. Independent dimensions are thus inadequate to represent the classification task. Here we employ Russell's Valence-Arousal model \cite{Russell1980} and follow the classifying scheme in \cite{Corona2015An} to select social tags that clearly indicates the song's emotional trend. It is found that some selected tags only contain no more than 100 songs and are not suitable for training a classifier, we then merged such tags into one single group, according to their quadrants in the Valence-Arousal model. The final number of songs tagged by each emotion group is shown in Table \ref{tb:clas-scheme}. Songs that have the emotional tags are labeled data for training the classifiers, while the rest of them are unlabeled data for the pretraining stage described in Section 3. The resulting dataset contains 41,727 labeled songs and 194,759 unlabeled songs, with labeled data account for 17.6\% of the whole data.
-
-%while lyric features are from MusixMatch dataset, which has 237,663 songs with lyric modality information and describes each song by a set of words from the recorded top 5,000 frequent words across all lyrics. %As there exist many copyright issues towards music lyrics, and this work mainly focus on proposing a proper model for classification, so we using the readily available basic level lyric features, e.g. bag-of-words(BOW) of every song. Examples of the BOW feature of songs are shown in \ref{table1}.
-
-%\begin{table}[]
-%	\centering
-%	\begin{tabular}{|l|l|}
-%		\hline
-%		\multicolumn{1}{|c|}{\textbf{emotion tags}} & \multicolumn{1}{c|}{\textbf{appeared words}}                                                                                                                                          \\ \hline
-%		aggressive,regret                           & \begin{tabular}[c]{@{}l@{}}wrong, blood, place, face, scare, gun, fear, dead, real, pain, time,\\ head, cause, your.\end{tabular}                                                      \\ \hline
-%		sad,blue                                    & \begin{tabular}[c]{@{}l@{}}her, heartbreak, fairy, tale, white, sacrifice, stood, page, gold, saw,\\ line, hard, wait,letter, light, turn, still, warm, write, bone, sea.\end{tabular} \\ \hline
-%	\end{tabular}
-%	\caption{Examples of BOW lyric features. The appeared words are top words after weighted by tf-idf. We also did un-stem of these words to better illustrate the relations between emotions and lyrics.}
-%	\label{table1}
-%\end{table}
-
-%which is tagged by online users. Among the super noisy tags, there is a subset that clearly indicates the emotion of the tagged song.
-
-%For example, Bohemian Rhapsody by Queen is comprised of moods like angry, sadness, regret, etc.
-
-%Last.fm\footnote[1]{http://www.last.fm/} is used in this research to extract emotional tags of a song in the MusixMatch dataset. However, music emotion classification is difficult due to people's different culture \cite{Song2013Do} and perception \cite{Kosta2013A}. Some songs may cover a variety of emotion. Independent dimensions are thus inadequate to represent the classification task. Here we employ Russell's Valence-Arousal model \cite{Russell1980} and follow the classifying scheme in \cite{Corona2015An} to select social tags that clearly indicates the song's emotional trend. It is found that some selected tags only contains no more than 100 songs and is not suitable for training a classifier, we then merged such tags into one single group, according to their quadrants in the Valence-Arousal model. The final number of songs tagged by each emotion group is shown in Table \ref{tb:clas-scheme}.
-
-
-%Russell's Valence-Arousal model maps every mood into a 2-dimensional space defined by valence (good–bad dimension of sentiment) and arousal (active–passive dimension of sentiment). It is one of the most widely used ontology for classifying moods and is thus adopted in our classification task. Follow the classifying scheme in \cite{Corona2015An}, we select some social tags from last.fm that clearly indicates the song's emotional trend. As some selected tags only contains no more than 100 songs and is not suitable for training a classifier, we then merged several tags into one single group, according to their quadrants in the Valence-Arousal model. The final number of songs tagged by each emotion group is shown in \ref{tb:clas-scheme}. It can be seen that even after the merge, some quadrants still have a relatively small number of songs, e.g. $v^{+}a^{-}$ quadrant.
-
-\begin{table}
-	\centering
-	\caption{Mood quadrants and their corresponding number of songs}
-	\label{tb:clas-scheme}
-	\begin{tabular}{|c|l|l|c|}
-		\hline
-		\textbf{Quadrant}               & \multicolumn{1}{c|}{\textbf{Group}} & \multicolumn{1}{c|}{\textbf{Tag}} & \textbf{Songs}         \\ \hline
-		\multirow{2}{*}{$v^{-}a^{+}$} & G29                                 & aggressive,aggression.            & \multirow{2}{*}{28,168} \\ \cline{2-3}
-		& G28                                 & anger,angry,choleric,etc.         &                         \\ \hline
-		\multirow{2}{*}{$v^{+}a^{+}$} & G6                                  & cheerful,jolly,festive,etc.       & \multirow{2}{*}{16,315} \\ \cline{2-3}
-		& G5                                  & happy,happiness,etc.              &                         \\ \hline
-		\multirow{3}{*}{$v^{-}a^{-}$} & G15                                 & sad,sadness,unhappy,etc.          & \multirow{3}{*}{10,154} \\ \cline{2-3}
-		& G16                                 & depressed,blue,dark,gloom,etc.    &                         \\ \cline{2-3}
-		& G17                                 & heartbreak,grief,sorrow,etc.      &                         \\ \hline
-		\multirow{2}{*}{$v^{+}a^{-}$}  & G8                                  & brooding,contemplative,etc.       & \multirow{2}{*}{2,629}  \\ \cline{2-3}
-		& G12                                 & calm,comfort,quiet,etc.           &                         \\ \hline
-	\end{tabular}
-\end{table}
-
-%As a result, we select totally 236,486 songs that does contain lyric information. According to \ref{tb:clas-scheme}, songs that have the emotional tags are selected as labeled data for training the classifiers, while the rest of them are unlabeled data for the pretraining stage described in Section 3. The resulting dataset contains 41,727 labeled songs and 194,759 unlabeled songs, with labeled data account for 17.6\% of the whole data.
-
-%\subsection{Valence-Arousal model}
-%People's different culture \cite{Song2013Do} and perception \cite{Kosta2013A} makes music moods difficult to classify. Some songs may also cover a variety of moods. For example, Bohemian Rhapsody by Queen is comprised of moods like angry, sadness, regret, etc. Independent dimensions are thus inadequate to represent the classification task. Russell’s model of affection maps every mood into a 2-dimensional space defined by valence(good–bad dimension of sentiment) and arousal(active–passive dimension of sentiment). It is one of the most widely used ontology for classifying moods. Besides, since more complicated classification approaches seem redundant towards our task, we adopted the Valence-Arousal model in our classification task. Follow the classifying scheme in \cite{Corona2015An}, we group the moods into 4 main categories according to the 4 quadrants of Russell’s model in order to build a big and representative dataset.
-
-%\begin{figure}
-%  \centering
-%  \includegraphics[width=0.5\columnwidth]{figures/v-a_model}
-%  \setlength{\abovecaptionskip}{0pt}
-%  \setlength{\belowcaptionskip}{-20pt}
-%  \caption{Bi-modal Deep Boltzmann Machine}\label{fg:va-Model}
-%\end{figure}
-
-%\subsection{Binary Emotion Classification}
-
-%In this experiment we mainly focus on the bi-modal DBM’s ability to fuse the two information modality. Hence, we only did a binary mood classification between happy and sad. As happy and sad are totally opposing emotions. Nevertheless, there is still 720 songs that are both tagged with happy and sad. We thus removed these songs to avoid ambiguity. 7,945 Songs are tagged with 'happy' while 5,840 songs are tagged with 'sad'. To ensure the two mood class is equally treated, we randomly pick 5,840 'happy' songs to comprise a 11,680 songs dataset with 1:1 sample ratio.
-
-
-
-The deep learning architecture is configured as following. The audio pathway is modeled by an  RBM with 194 visible units, each taking as input acoustic content descriptors, such as MFCC and SSD features. The visible layer is followed by two layers of hidden units, 100 and 50 each. The text modality is formed by RBM consisting of 5,000-unit visible layer followed by hidden layers of 2,048 and 1,024 units each. A joint layer combines the two modalities and consists of 1,074 hidden units. Its output can be considered as a complex probability estimate of the mood classes. We use the output from our Mulimodal RBM as input to either Softmax or SVM for the final classification decision. Additionally, to test the robustness of our chosen audio features, we expand the audio modality from 194 to 3,456 dimensions by including additional audio-based features. The hidden layers are also expanded to 2,048 and 1,024 respectively; and the joint layer to 2,048 units.
-
-
-%Furthermore, to see how feature selection strategy influence the classification accuracy, we expand the feature on audio modality to 3456 dimensions by including features such as rhythm patterns, Temporal statistical spectrum descriptors, etc. Hidden units in the hidden layer are also expanded to 2,048-1,024, and the joint layer now contains 2,048 hidden units. 
-
-%Parameters were pretrained using PCD for initialisation, and all word counts vectors are scaled to 5 to avoid running separate Markov Chains for each word counts to get the model distribution's sufficient statistics \cite{DBLP:journals/jmlr/SrivastavaS14}.
-%For the classification, both SVM and Softmax are used on each layer of representation. 
-%Here we only report the result using SVM, as it is slightly better. 
-Because the SVM classifier performs slightly better on average, we omit the Softmax results. In our experiments, we perform $k$-fold repeated random sub-sampling validation with $k=5$. In each fold, 60\% (6,984) tracks are selected for training and 40\% (4,656) for testing. We compute Mean Average Precision (MAP) %, Prec@n 
-and Accuracy as metrics to comprehensively evaluate the models. %We arbitarily set n to 50 according to \cite{DBLP:conf/sigir/BuckleyV00}. 
-The initial experimental results are shown in Fig. 2, %To show the performance, Mean Average Precision (MAP), Prec@50 and Accuracy is used as metrics to comprehensively evaluate the models. The experimental results are shown in Fig. 2.
-where we also illustrated the baseline SVM performance (no DBM) using early concatenation method to join the two modalities into a single input vector.
-
-
-\begin{figure}
-	\centering
-	\label{fg:performance}
-	\includegraphics[width=.495\textwidth]{figures/map}
-	\includegraphics[width=.495\textwidth]{figures/acc}
-%	\includegraphics[width=.3\textwidth]{figures/prec@50}
-	\caption{MAP and Accuracy achieved by the Bi-modal Boltzmann Machine in the ``happy''/``sad'' binary classification task}%and Prec@50 achieved by the Bi-modal Boltzmann Machine.}
-\end{figure}
-
-%\subsection{Discussion}
-%\subsubsection{Fusing Ability}
-As can be seen from Fig. 2, audio-based features indeed outperform the lyric-based features to some extent. We conjecture that this may be because the audio modality is represented by features that were hand-crafted and improved over the years. Meanwhile, the text modality is represented by a shallow BoW statistical measure with large vocabulary, which results in a sparse input vector. This again urges the study on higher level lyric features, which may yield interesting results. 
-We also noticed that the classification performance declined through the audio pathway, which indicates that some valuable information are lost through the extracting process in the audio modality. 
-%This it is caused by the insufficient number of audio features. 
-After expanding the audio modality with additional features, this phenomenon disappears. This indicates the necessity of feature selection. %, for both deficiency and redundancy of features may all cause poor performance.
-Among all results, the best performance is achieved at the joint layer, which shows the effectiveness of the fusing ability of the proposed approach. After expanding the audio features from 194 to 3,456, the baseline SVM performance did not improve much. %since simple concatenation yields an 8456-dimension feature vector that is hard to find a decision boundary. However, our model can easily handle high dimensionality classification problem by gradually mapping it into lower-dimension vector spaces. 
-
-
-
-%\subsection{Multi-emotion Classification}
-%As music may be labeled by several different tags, did 1-vs-all classification using SVM on the input and top joint layer for each mod group respectively.
-%After testing the binary emotion task classification, we further evaluate the model's performance on multi-mood classification tasks. Besides 
-In addition to using the lyric- and audio-based features with our approach, we also compare the model fusion, early fusion and late fusion methods. In late fusion, we first trained two SVM classifiers to represent the two modalities separately, denoting as $p_{a}$ and $p_{t}$. Then the output mood class is assigned by
-\begin{equation}
-p = \alpha p_{a}+(1-\alpha)p_{t}
-\end{equation}
-where $\alpha$ indicates the relevant importance between audio and lyric features. We set $\alpha = 0.6$, as per Hu et al.~\cite{Hu2016A}. As before, in order to avoid classifier bias towards majority class, we attempt to maintain class balance by ensuring that both training and testing instances are equally distributed across mood classes. 
-%Similar to binary emotion classification, we randomly constructed the training and testing set with 40\% positive samples and 60\% negative samples. The negative samples are equally distributed across three negative mood classes, in order to ensure the classifier to get familiar with each type of negative samples. 
-Results are shown in Table \ref{tb:multimood-rst}.
-
-
-\begin{table}[!hpt]
-	\centering
-	\caption{Comparison of accuracy achieved by the different fusion models}
-	\label{tb:multimood-rst}
-	\begin{tabular}{|c|c|c|c|c|c|}
-		\hline
-		& \textbf{audio\_only} & \textbf{text\_only} & \textbf{early\_fusion} & \textbf{late\_fusion} & \textbf{Bi-modal DBM} \\ \hline
-		$v^{-}a^{+}$ & 0.645               & 0.600                & 0.689                 & 0.666                & \textbf{0.706}                 \\ \hline
-		$v^{+}a^{+}$ & 0.625               & 0.607              & 0.653                 & 0.639                & \textbf{0.692}                 \\ \hline
-		$v^{-}a^{-}$ & 0.634               & 0.620               & 0.661                 & 0.642                & \textbf{0.704}                 \\ \hline
-		$v^{+}a^{-}$ & 0.730               & 0.702              & 0.745                 & 0.729                & \textbf{0.785}                 \\ \hline
-	\end{tabular}
-\end{table}
-
-%\subsection{Discussion}
-%\subsubsection{Fusing Ability}
-Our model outperformed other baseline models in every mood category. The moods in $v^{+}a^{-}$ quadrant obtain the highest accuracy. This is interesting given that the $v^{+}a^{-}$ quadrant has the least number of songs. The reason may be that music pieces in this mood group has many unique lyric terms. Between other mood categories, however, there is no significant differences in the classification accuracy. Moreover, the fusion methods' accuracy all outperformed the accuracy of classification on single modality, affirming the effectiveness of multi-modal mood classification in the same way as many prior studies show.
+% \begin{table}
+% 	\centering
+% 	\caption{Mood quadrants and their corresponding number of songs}
+% 	\label{tb:clas-scheme}
+% 	\begin{tabular}{|c|l|l|c|}
+% 		\hline
+% 		\textbf{Quadrant}               & \multicolumn{1}{c|}{\textbf{Group}} & \multicolumn{1}{c|}{\textbf{Tag}} & \textbf{Songs}         \\ \hline
+% 		\multirow{2}{*}{$v^{-}a^{+}$} & G29                                 & aggressive,aggression.            & \multirow{2}{*}{28,168} \\ \cline{2-3}
+% 		& G28                                 & anger,angry,choleric,etc.         &                         \\ \hline
+% 		\multirow{2}{*}{$v^{+}a^{+}$} & G6                                  & cheerful,jolly,festive,etc.       & \multirow{2}{*}{16,315} \\ \cline{2-3}
+% 		& G5                                  & happy,happiness,etc.              &                         \\ \hline
+% 		\multirow{3}{*}{$v^{-}a^{-}$} & G15                                 & sad,sadness,unhappy,etc.          & \multirow{3}{*}{10,154} \\ \cline{2-3}
+% 		& G16                                 & depressed,blue,dark,gloom,etc.    &                         \\ \cline{2-3}
+% 		& G17                                 & heartbreak,grief,sorrow,etc.      &                         \\ \hline
+% 		\multirow{2}{*}{$v^{+}a^{-}$}  & G8                                  & brooding,contemplative,etc.       & \multirow{2}{*}{2,629}  \\ \cline{2-3}
+% 		& G12                                 & calm,comfort,quiet,etc.           &                         \\ \hline
+% 	\end{tabular}
+% \end{table}
 
 
 \section{结论}% and Future Works}
-In this work, we used a deep learning architecture, inspired by the work of Srivastava and Salakhutdinov~\cite{DBLP:journals/jmlr/SrivastavaS14}, to effectively fuse the audio and text modalities for music mood classification. 
-Results show that fusing modalities is indeed advantageous in the music mood classification task. In addition to including information from other domains/modalities, it would be interesting to see how other lyric derived features perform with this and other multimodal approaches in the music-IR literature, we leave this to our future work.
-%Results show that the bi-modal DBM outperforms than single modality and other multi-modal baseline models across every emotion group. It also showed flexibility towards high dimensional inputs. It is expected that this work can provide insight for future research in this direction.%Besides, we also built a large dataset basing on the Million Song Dataset. As urged by \cite{Corona2015An} and \cite{Hu2016A}, we plan to make our dataset available and add higher level lyric features for deeper analysis by integrating semantic information.
 
 \subsubsection*{Acknowledgements}
-This work was partially supported by the National Natural Science Foundation of China (No. 61332018), the National Department Public Benefit Research Foundation (No. 201510209), and the Fundamental Research Funds for the Central Universities.
 
 \bibliographystyle{splncs03}
 %\bibliographystyle{unsrt}
