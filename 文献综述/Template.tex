@@ -48,22 +48,7 @@
 
 \subsection{知识图谱数据集}
 
-著名知识图谱开源数据集有 WordNet 、 FreeBase 和 Yago 等。其中 WordNet 数据集是由专家构建的词典知识库， FreeBase 数据集则是由志愿者构建的世界知识库，包含人物、地点、分类等信息， Yago 则是一个从半结构化文本中学习出的知识库。知识表示学习的相关算法，大多基于 WordNet 和 FreeBase 进行验证。此外，由于具体应用的特殊性，往往需要将数据集根据实体的对应关系分为 $1-1$ 、 $1-n$ 、 $n-1$ 、 $n-n$ 四种。但在 ConvE 模型\cite{DBLP:conf/aaai/DettmersMS018}中发现，这两个数据集的子集 FB15K 和 WN18 存在严重的测试集泄漏问题，即对于某个训练集中的三元组，反转其头实体和尾实体，就可以在测试集中找到相同的数据。故在此后的研究中，普遍使用去除泄漏数据的 FB15K-237 和 WN18-RR 数据集进行训练、验证和预测。
-
-% \begin{table}
-% 	\centering
-% 	\caption{ WordNet 和 FreeBase 数据集规模}
-% 	\label{tb:WordNet&FreeBase}
-% 	\begin{threeparttable}
-% 		\begin{tabular}{cccccc}
-% 			\hline
-% 			\textbf{数据集} & \multicolumn{4}{c}{\textbf{头实体预测准确率}} & \multicolumn{4}{c}{\textbf{尾实体预测准确率}} \\
-% 			\textbf{} & \textbf{1-1} & \textbf{1-n} & \textbf{n-1} & \textbf{n-n} & \textbf{1-1} & \textbf{1-n} & \textbf{n-1} & \textbf{n-n} \\ \hline
-% 			DISTADD & 70.0 & 76.7 & 21.1 & 53.9 & 68.7 & 17.4 & 83.2 & 57.5 \\
-% 			DISTMULT & 75.5 & 85.1 & 42.9 & 55.2 & 73.7 & 46.7 & 81.0 & 58.8 \\ \hline
-% 		\end{tabular}
-% 	\end{threeparttable}
-% \end{table}
+著名知识图谱开源数据集有 WordNet 、 FreeBase 和 Yago 等。其中 WordNet 数据集是由专家构建的词典知识库， FreeBase 数据集则是由志愿者构建的世界知识库，包含人物、地点、分类等信息， Yago 则是一个从半结构化文本中学习出的知识库。知识表示学习的相关算法，大多基于 WordNet 和 FreeBase 进行验证。此外，由于具体应用的特殊性，往往需要将三元组 $S$ 根据实体之间的对应关系分为 $1-1$ 、 $1-n$ 、 $n-1$ 、 $n-n$ 四种。但在 ConvE 模型\cite{DBLP:conf/aaai/DettmersMS018}中发现，这两个数据集的子集 FB15K 和 WN18 存在严重的测试集泄漏问题，即对于某个训练集中的三元组，反转其头实体和尾实体，就可以在测试集中找到相同的数据。故在此后的研究中，普遍使用去除泄漏数据的 FB15K-237 和 WN18-RR 数据集进行训练、验证和预测。
 
 \section{知识表示学习}
 
@@ -97,7 +82,9 @@ g(E_h,E_t,R_k)=u_k^Ttanh(W^h_kl_h+W^t_kl_t)
 \begin{displaymath}
 g(E_h,E_t,R_k)=l_h^TW_kl_t^T
 \end{displaymath}
-即头实体向量 $l_h$ 或尾实体向量 $l_t$ 都可以通过一个和关系矩阵的线性变换得到对方。双线性将关系表征为一个二维矩阵，大大简化了距离模型的投影矩阵。而 DISTMULT 模型根据 LFM 模型中和权重乘积的过程，将关系矩阵限制为对角矩阵，即主对角线外的元素值都为0，不仅提升了 LFM 模型的效果，还进一步降低关系矩阵参数的规模。同时，针对翻译模型中的 TransE 模型\cite{DBLP:conf/ccir/CaiLZM18}，该论文还提出了 DISTADD 模型\cite{DBLP:journals/corr/YangYHGD14a}，在实体分类问题上的准确率见表\ref{tb:DISTMULT&DISTADD}。相比之下， DISTMULT 模型的效果更胜一筹。
+即头实体向量 $l_h$ 或尾实体向量 $l_t$ 都可以通过一个和关系矩阵的线性变换得到对方。双线性将关系表征为一个二维矩阵，大大简化了距离模型的投影矩阵。而 DISTMULT 模型根据 LFM 模型中和权重乘积的过程，将关系矩阵限制为对角矩阵，即主对角线外的元素值都为0，不仅提升了 LFM 模型的效果，还进一步降低关系矩阵参数的规模。
+
+针对翻译模型中的 TransE 模型\cite{DBLP:conf/nips/BordesUGWY13}中采取了平移的方法，该论文还提出了优化后的 DISTADD 模型\cite{DBLP:journals/corr/YangYHGD14a}， DISTADD 模型和 DISTMULT 模型在实体分类问题上的准确率见表\ref{tb:DISTMULT&DISTADD}。相比之下， DISTMULT 模型的效果更胜一筹。
 
 \begin{table}
 	\centering
@@ -114,7 +101,30 @@ g(E_h,E_t,R_k)=l_h^TW_kl_t^T
 	\end{threeparttable}
 \end{table}
 
-张量神经网络模型（Neural Tensor Networks，NTN）\cite{DBLP:conf/nips/SocherCMN13}则是双线性模型和神经网络模型的结合。 NTN 模型是在 SLM 模型的基础上引入实体和关系的三阶双线性张量，如图\ref{fg:NTN}所示。 NTN 模型还对向量进行预训练作为初始值，而不是通常采用的随机生成，这样做的好处是尽可能使用实体和关系的语义信息，尤其是在比较稠密的知识图谱中，对模型效果的提高十分明显。 NTN 模型相比上述模型，对实体和联系的语义信息体现的更好，但 NTN 模型所需要的参数较多，难以在知识图谱较稀疏时发挥作用。
+除此之外，还有双线性的语义匹配能量模型（Semantic Matching Energy，SME）\cite{DBLP:journals/jmlr/BordesGWB12}等模型，同样在 SE 模型的基础上尝试构建实体和关系之间的潜在语义联系。
+
+\subsection{张量分解模型及其扩展模型}
+
+张量分解模型（RESCAL）\cite{DBLP:conf/icml/NickelTK11}又被称为矩阵分解模型，它和 LFM 的思想类似，对第 $k$ 个头实体-关系-尾实体的三元组，定义一个三阶张量：
+\begin{displaymath}
+\chi_k=AR_kA^T
+\end{displaymath}
+其中 $A$ 为因子矩阵，是所有实体向量拼接成的矩阵； $R_k$ 为核心矩阵，是关系 $k$ 的参数。参数的求解是通过矩阵分解和交替最小二乘法，图\ref{fg:RESCAL}表示出了 RESCAL 模型的矩阵分解过程。
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\columnwidth]{figures/RESCAL.png}
+	\caption{ RESCAL 模型的矩阵分解}
+	\label{fg:RESCAL}
+\end{figure}
+
+在 RESCAL 模型中，定义损失函数为：
+\begin{displaymath}
+\min_{A,R_k}=\frac{1}{2}(\sum_k||\chi_k-AR_kA^T||^2_F)+\frac{1}{2}\lambda(||A||^2_F+\sum_k||R_k||^2_F)
+\end{displaymath}
+对于每一个可能的三元组，计算其张量 $\chi_k$ 值。在关系预测上，认为张量 $X_k$ 大于阈值则认为关系存在（即认为 $\chi_k=1$ ），小于阈值则认为关系不存在（即认为 $\chi_k=0$ ）。 RESCAL 模型也是一个双线性模型，同样也存在参数过大的问题。
+
+张量神经网络模型（Neural Tensor Networks，NTN）\cite{DBLP:conf/nips/SocherCMN13}则是双线性模型和神经网络模型的结合。 NTN 模型是在 SLM 模型的基础上引入实体和关系的三阶双线性张量，如图\ref{fg:NTN}所示。
 
 \begin{figure}
 	\centering
@@ -122,16 +132,68 @@ g(E_h,E_t,R_k)=l_h^TW_kl_t^T
 	\caption{ NTN 模型}
 	\label{fg:NTN}
 \end{figure}
+在 NTN 模型中，还对向量进行预训练作为初始值，而不是通常采用的随机生成，这样做的好处是尽可能使用实体和关系的语义信息，尤其是在比较稠密的知识图谱中，对模型效果的提高十分明显。 NTN 模型相比上述模型，对实体和联系的语义信息体现的更好，但 NTN 模型所需要的参数较多，难以在知识图谱较稀疏时发挥作用。
 
-\subsection{张量分解模型}
-
-张量分解模型（RESCAL）\cite{DBLP:conf/icml/NickelTK11}则
+此外，还有使用循环相关（Circular Correlation）代替 RESCAL 模型张量乘积操作的全息表示模型（Holographic Embeddings，HolE）\cite{DBLP:conf/aaai/NickelRP16}，该循环相关降低了 RESCAL 模型中的参数维度。
 
 \subsection{翻译模型及其扩展模型}
 
-\section{结论}
+在距离模型及其扩展模型中，关系通常被表征为一个或两个矩阵进行点乘映射。 TransE 模型\cite{DBLP:conf/nips/BordesUGWY13}被称为翻译模型或隐距离模型，它将关系表征为一个向量 $l_r$ 而非矩阵，其“翻译”的过程可以表示为：
+\begin{displaymath}
+l_t\approx l_h+l_r
+\end{displaymath}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\columnwidth]{figures/TransE.png}
+	\caption{ TransE 模型的翻译过程}
+	\label{fg:TransE}
+\end{figure}
+即将尾实体的词向量看作头实体按照关系进行平移的结果，图\ref{fg:TransE}直观的反映出了 TransE 模型翻译的过程。相应的， TransE 模型的评分函数为：
+\begin{displaymath}
+f_r(E_h,E_t)=d(l_h+l_r,l_t)
+\end{displaymath}
+通过这个平移的过程， TransE 模型 可以很好的表示出实体 king 与 queen 的联系和实体 man 与 woman 的联系的语义相关性。但实验\cite{DBLP:conf/nips/BordesUGWY13}表明， TransE 模型对 $1-n$ 问题的效果并不理想，在实体预测问题上， TransE 模型的准确率见表\ref{tb:TransE}。
 
-\subsubsection*{Acknowledgements}
+\begin{table}
+	\centering
+	\caption{ TransE 模型在实体预测问题上的准确性}
+	\label{tb:TransE}
+	\begin{threeparttable}
+		\begin{tabular}{ccccccccc}
+			\hline
+			\textbf{模型} & \multicolumn{4}{c}{\textbf{头实体预测准确率}} & \multicolumn{4}{c}{\textbf{尾实体预测准确率}} \\
+			\textbf{} & \textbf{1-1} & \textbf{1-n} & \textbf{n-1} & \textbf{n-n} & \textbf{1-1} & \textbf{1-n} & \textbf{n-1} & \textbf{n-n} \\ \hline
+			SME & 30.9 & 69.6 & 19.9 & 38.6 & 28.2 & 13.1 & 76.0 & 41.8\\
+			TransE & 43.7 & 65.7 & 18.2 & 47.2 & 43.7 & 19.7 & 66.7 & 50.0 \\ \hline
+		\end{tabular}
+	\end{threeparttable}
+\end{table}
+
+对于 $1-n$ 问题，如“苹果公司的创始人有谁”应该有多个尾实体符合。但经过 TransE 模型训练后，由 $l_h+l_r$ 得到的尾实体向量相同，即多个创始人有着相同的词向量，这显然与显示不符。但由于 TransE 模型可以通过向量直接建立语义联系，且参数大幅减少，性能提升较大，逐渐成为了相当经典的模型。后续许多扩展模型都是根据 TransE 翻译模型进行的进一步改进。
+
+针对 TransE 模型中在 $1-n$ 、 $n-1$ 和 $n-n$ 问题上的缺陷，提出了 TransH 模型\cite{DBLP:conf/aaai/WangZFC14}。不同于 TransE 模型中，简单的将头实体词向量根据关系向量平移， TransH 模型采用了向量投影的方法，如图\ref{fg:TransH}所示。
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\columnwidth]{figures/TransH.png}
+	\caption{ TransH 模型的翻译过程}
+	\label{fg:TransH}
+\end{figure}
+
+在 TransH 模型中，认为在不同的关系中的实体应该有不同的表示。 TransH 模型通过定义投影矩阵 $W_r$ ，将头实体向量 $l_h$ 和尾实体向量 $l_t$ 投影到投影空间，得到 $l_{h\perp}$ 和 $l_{t\perp}$ 向量。此后再使用 TransE 模型的方法进行翻译：
+\begin{displaymath}
+l_{t\perp}\approx l_{h\perp}+l_r
+\end{displaymath}
+而投影的过程，可以表示为：
+\begin{displaymath}
+	\begin{split}
+	l_{h\perp}&=l_h-W_r^ThW_r \\
+	l_{t\perp}&=l_t-W_r^TtW_r
+	\end{split}
+\end{displaymath}
+通过投影操作， TransH 模型实际只使用了实体词向量的一个分量，避免出现 TransE 模型在非 $1-1$ 情况下得到相同尾实体的问题。
+
+\section{结论}
 
 \bibliographystyle{splncs03}
 %\bibliographystyle{unsrt}
