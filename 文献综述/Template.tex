@@ -38,7 +38,7 @@
 
 \section{引言}
 
-知识图谱\cite{DBLP:journals/pieee/Nickel0TG16}是一种可以结构化地表示真实世界中的实体和实体间关系的网络，广泛应用于搜索引擎等领域。近年来，大量开源知识图谱，如 WordNet\cite{Miller:1995:WLD:219717.219748} 、 FreeBase\cite{Bollacker:2008:FCC:1376616.1376746} 和 Yago\cite{suchanek2007yago} 的出现，验证了知识图谱模型在真实世界数据集中的表现。而知识表示学习\cite{DBLP:journals/corr/abs-1812-10901}，则是将知识图谱中的实体和关系用词向量的形式来表示，使得知识图谱相关研究不必拘束于图的算法。本文将针对近年来具有重要意义的知识表示学习模型进行研究和对比，并介绍知识表示学习领域的其他相关模型。
+知识图谱\cite{DBLP:journals/pieee/Nickel0TG16}是一种可以结构化地表示真实世界中的实体和实体间关系的网络，广泛应用于搜索引擎等领域。近年来，大量开源知识图谱，如 WordNet\cite{Miller:1995:WLD:219717.219748} 、 FreeBase\cite{Bollacker:2008:FCC:1376616.1376746} 、Wikidata\cite{42240}和 Yago\cite{suchanek2007yago} 的出现，验证了知识图谱模型在真实世界数据集中的表现。而知识表示学习\cite{DBLP:journals/corr/abs-1812-10901}，则是将知识图谱中的实体和关系用词向量的形式来表示，使得知识图谱相关研究不必拘束于图的算法。本文将针对近年来具有重要意义的知识表示学习模型进行研究和对比，并介绍知识表示学习领域的其他相关模型。
 
 \section{背景介绍}
 
@@ -64,11 +64,22 @@
 	\end{threeparttable}
 \end{table}
 
+\section{模型综述}
+
+见图\ref{fg:resume}。
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\columnwidth]{figures/resume.png}
+	\caption{模型综述}
+	\label{fg:resume}
+\end{figure}
+
 \section{知识表示学习}
 
 知识图谱通常以图的形式存储，这种图结构不仅不利于对知识图谱的进一步研究，更需要设计特定的算法进行相应的计算。因此通常将图结构转化为向量的形式，便于更加高效的解决知识图谱领域的关系提取、关系预测、实体预测等问题。
 
-通过向量表示实体的方法通常有两种。在传统方法中，采用独热编码来构建向量。对一个有n个实体数据集，需要对每个实体使用一个n维向量来表示。每个向量中只有1维的值为1，其余值均为0。这种方法存在明显的问题：随着数据集规模的增加，向量维数过大；又由于向量之间两两正交，不仅无法表示出实体的语义信息，更无法表示实体之间的相似程度。另一种构建词向量的方法则是通过机器学习算法，得到每一个实体的低维稠密向量。对于一个词向量而言，单独拿出一维数值可能毫无意义，但组成词向量后却可以表示出相应实体的语义信息，这就是表示学习。
+通过向量表示实体的方法通常有两种。在传统方法中，采用独热编码来构建向量。对一个有n个实体数据集，需要对每个实体使用一个n维向量来表示。每个向量中只有 1 维的值为 1 ，其余值均为 0 。这种方法存在明显的问题：随着数据集规模的增加，向量维数过大；又由于向量之间两两正交，不仅无法表示出实体的语义信息，更无法表示实体之间的相似程度。另一种构建词向量的方法则是通过机器学习算法，得到每一个实体的低维稠密向量。对于一个词向量而言，单独拿出一维数值可能毫无意义，但组成词向量后却可以表示出相应实体的语义信息，这就是表示学习。
 
 所谓知识表示学习，即对知识库运用表示学习的方法。通过用低维度的稠密向量来表示知识库中的实体或关系，从而进行实体预测\cite{DBLP:journals/tkde/WangMWG17}、实体分类、语义相似性分析等工作。常用的知识表示学习模型可以分为线性模型、神经网络模型、翻译模型等。
 
@@ -76,7 +87,7 @@
 
 \subsection{距离模型及其扩展模型}
 
-结构表示模型（Structured Embeddings，SE）\cite{DBLP:conf/aaai/BordesWCB11}是最经典的线性模型， SE 模型也被称为距离模型。对于知识图谱中的一个头实体-尾实体-关系三元组 $\{E_h, E_t, R_k\}$ ， SE 模型通过将第 $x$ 个实体 $E_x$ 表征为一个 $d$ 维（约50维）的词向量 $l_x$ ，将第 $k$ 个关系 $R_k$ 构造成两个 $d×d$ 维的投影矩阵 $W^h_k$ 和 $W^t_k$ ，并定义了如下的损失函数来计算实体之间的语义相关性：
+结构表示模型（Structured Embeddings，SE）\cite{DBLP:conf/aaai/BordesWCB11,DBLP:journals/corr/abs-1301-3618}是最经典的线性模型， SE 模型也被称为距离模型。对于知识图谱中的一个头实体-尾实体-关系三元组 $\{E_h, E_t, R_k\}$ ， SE 模型通过将第 $x$ 个实体 $E_x$ 表征为一个 $d$ 维（约50维）的词向量 $l_x$ ，将第 $k$ 个关系 $R_k$ 构造成两个 $d×d$ 维的投影矩阵 $W^h_k$ 和 $W^t_k$ ，并定义了如下的损失函数来计算实体之间的语义相关性：
 \begin{displaymath}
 S_k(E_h,E_t)=||W^h_kl_h-W^t_kl_t||_p
 \end{displaymath}
@@ -92,7 +103,7 @@ g(E_h,E_t,R_k)=u_k^Ttanh(W^h_kl_h+W^t_kl_t)
 \end{displaymath}
 其中 $u_k$ 为关系 $R_k$ 相关的参数。而 MLP 模型可以看作在 SLM 模型的基础上引入多个隐藏层的结果。 SLM 模型和 MLP 模型并非线性模型，而是利用神经网络进行计算，由此带来了挖掘实体和关系之间隐含语义联系的可能性，一定程度上解决了 SE 模型中无法计算实体之间和关系之间的语义联系的问题，但与此同时也大幅提高了参数计算的复杂度，且模型的可解释性较差。
 
-为了进一步解决距离模型中，使用两个投影矩阵无法直观表现关系之间的语义联系的问题，出现了双线性模型。隐变量模型（Latent Factor Model，LFM）\cite{DBLP:conf/nips/JenattonRBO12}和 DISTMULT 模型\cite{DBLP:journals/corr/YangYHGD14a}就是双线性模型的代表。 LFM 模型可以直观的通过其评价函数来理解：
+为了进一步解决距离模型中，使用两个投影矩阵无法直观表现关系之间的语义联系的问题，出现了双线性模型。隐变量模型（Latent Factor Model，LFM）\cite{DBLP:conf/nips/JenattonRBO12,NIPS2009_3863}和 DISTMULT 模型\cite{DBLP:journals/corr/YangYHGD14a}就是双线性模型的代表。 LFM 模型可以直观的通过其评价函数来理解：
 \begin{displaymath}
 g(E_h,E_t,R_k)=l_h^TW_kl_t^T
 \end{displaymath}
@@ -119,7 +130,7 @@ g(E_h,E_t,R_k)=l_h^TW_kl_t^T
 
 \subsection{张量分解\cite{harshman1994parafac}模型及其扩展模型}
 
-张量分解模型（RESCAL）\cite{DBLP:conf/icml/NickelTK11}又被称为矩阵分解模型，它和 LFM 的思想类似，对第 $k$ 个头实体-关系-尾实体的三元组，定义一个三阶张量：
+张量分解模型（RESCAL）\cite{DBLP:conf/icml/NickelTK11,DBLP:conf/www/NickelTK12}又被称为矩阵分解模型，它和 LFM 的思想类似，对第 $k$ 个头实体-关系-尾实体的三元组，定义一个三阶张量：
 \begin{displaymath}
 \chi_k=AR_kA^T
 \end{displaymath}
@@ -159,7 +170,7 @@ g(E_h,E_t,R_k)=l_h^TW_kl_t^T
 	\label{fg:TransE}
 \end{figure}
 
-在距离模型及其扩展模型中，关系通常被表征为一个或两个矩阵进行点乘映射。 TransE 模型\cite{DBLP:conf/nips/BordesUGWY13}被称为翻译模型或隐距离模型，它将关系表征为一个向量 $l_r$ 而非矩阵，其“翻译”的过程可以表示为：
+在距离模型及其扩展模型中，关系通常被表征为一个或两个矩阵进行点乘映射。受到 Word2Vec 模型\cite{DBLP:conf/nips/MikolovSCCD13,DBLP:journals/corr/abs-1301-3781}的启发， TransE 模型\cite{DBLP:conf/nips/BordesUGWY13}被称为翻译模型或隐距离模型，它将关系表征为一个向量 $l_r$ 而非矩阵，其“翻译”的过程可以表示为：
 \begin{displaymath}
 l_t\approx l_h+l_r
 \end{displaymath}
@@ -223,9 +234,7 @@ l_{t\perp}\approx l_{h\perp}+l_r
 
 此外，还有改善 TransR 模型映射规则的 TransD 模型\cite{DBLP:conf/er/XiongHD18}，使用将 TransR 模型中的稠密矩阵更换为稀疏矩阵的 TranSparse 模型\cite{DBLP:conf/aaai/JiLH016}，更改距离度量方式为马氏距离的 TransA 模型\cite{DBLP:journals/corr/0005HHZ15a}，使用流形代替传统 $L_1$ 或 $L_2$ 距离的 ManifoldE 模型\cite{DBLP:conf/ijcai/0005HZ16}，增加高斯混合的 TransG 模型\cite{DBLP:journals/corr/0005HHZ15}，使用高斯分布重新描述实体和关系的 KG2E 模型\cite{DBLP:conf/cikm/HeLJ015}等，都是对 TransE 模型的扩展。
 
-\section{知识表示学习领域的其他模型}
-
-\section{知识表示学习数据的预处理}
+\section{知识表示学习数据的预处理模型}
 
 \subsection{多源数据融合}
 
@@ -247,9 +256,11 @@ GAT 模型\cite{DBLP:conf/iclr/VelickovicCCRLB18}提出了一种基于注意力�
 	\caption{ GAT 模型}
 	\label{fg:GAT}
 \end{figure}
- GAT 模型的输出为对实体词向量分类后的词向量。相比 GCN 模型\cite{DBLP:conf/iclr/KipfW17}， GAT 模型更加高效， attention 机制中每个节点的重要程度可以不同，使得 GAT 模型有更强的表示能力。
+ GAT 模型的输出为对实体词向量分类后的词向量。相比 GCN 模型\cite{DBLP:conf/iclr/KipfW17,DBLP:conf/nips/DefferrardBV16}， GAT 模型更加高效， attention 机制中每个节点的重要程度可以不同，使得 GAT 模型有更强的表示能力。
 
 \section{结论}
+
+
 
 \bibliographystyle{splncs03}
 %\bibliographystyle{unsrt}
