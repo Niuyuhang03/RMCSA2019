@@ -13,6 +13,7 @@
 \usepackage{subfigure}
 \usepackage{algorithm}
 \usepackage{algorithmic}
+\usepackage{threeparttable}
 \renewcommand{\algorithmicrequire}{ \textbf{Input:}}
 \renewcommand{\algorithmicensure}{ \textbf{Output:}}
 \usepackage{url}
@@ -37,7 +38,7 @@
 
 \section{引言}
 
-知识图谱是一种可以结构化地表示真实世界中的实体和实体间关系的网络，广泛应用于搜索引擎等领域。近年来，大量开源知识图谱，如 WordNet\cite{Miller:1995:WLD:219717.219748} 、 Freebase\cite{Bollacker:2008:FCC:1376616.1376746} 和 Yago\cite{suchanek2007yago} 的出现，验证了知识图谱模型在真实世界数据集中的表现。而知识表示学习\cite{DBLP:journals/corr/abs-1812-10901}，则是将知识图谱中的实体和关系用词向量的形式来表示，使得知识图谱相关研究不必拘束于图的算法。本文将针对近年来具有重要意义的知识表示学习模型进行研究和对比，并介绍知识表示学习的相关应用。
+知识图谱是一种可以结构化地表示真实世界中的实体和实体间关系的网络，广泛应用于搜索引擎等领域。近年来，大量开源知识图谱，如 WordNet\cite{Miller:1995:WLD:219717.219748} 、 FreeBase\cite{Bollacker:2008:FCC:1376616.1376746} 和 Yago\cite{suchanek2007yago} 的出现，验证了知识图谱模型在真实世界数据集中的表现。而知识表示学习\cite{DBLP:journals/corr/abs-1812-10901}，则是将知识图谱中的实体和关系用词向量的形式来表示，使得知识图谱相关研究不必拘束于图的算法。本文将针对近年来具有重要意义的知识表示学习模型进行研究和对比，并介绍知识表示学习的相关应用。
 
 \section{背景介绍}
 
@@ -45,9 +46,26 @@
 
 知识图谱是用来表示真实世界中的实体和实体间关系的图结构网络，由节点和边组成，其中节点代表实体，边代表实体之间的关系，通常用三元组 $G=\{E,R,S\}$ 来表示知识图谱，其中 $E$ 为实体的集合， $R$ 为关系的集合， $S$ 是实体-关系-实体的三元组集合，即 $S\subseteq{E×R×E}$ 。此外，一个实体-关系-实体的三元组也可以表示为 $(h,r,t)$ 的格式，其中 $h$ 和 $t$ 分别代表头实体和尾实体， $r$ 表示头实体和尾实体之间的关系。
 
-著名知识图谱开源数据集有 WordNet 、 FreeBase 和 Yago 等。其中 WordNet 数据集是由专家构建的词典知识库， FreeBase 数据集则是由志愿者构建的世界知识库，包含人物、地点、分类等信息， Yago 则是一个从半结构化文本中学习出的知识库。知识表示学习的相关算法，大多基于 WordNet 和 FreeBase 进行验证。但在 ConvE 模型\cite{DBLP:conf/aaai/DettmersMS018}中发现，这两个数据集的子集 FB15K 和 WN18 存在严重的测试集泄漏问题，即对于某个训练集中的三元组，反转其头实体和尾实体，就可以在测试集中找到相同的数据。故在此后的研究中，普遍使用去除泄漏数据的 FB15K-237 和 WN18-RR 数据集进行训练、验证和预测。
+\subsection{知识图谱数据集}
 
-\subsection{知识表示学习}
+著名知识图谱开源数据集有 WordNet 、 FreeBase 和 Yago 等。其中 WordNet 数据集是由专家构建的词典知识库， FreeBase 数据集则是由志愿者构建的世界知识库，包含人物、地点、分类等信息， Yago 则是一个从半结构化文本中学习出的知识库。知识表示学习的相关算法，大多基于 WordNet 和 FreeBase 进行验证。此外，由于具体应用的特殊性，往往需要将数据集根据实体的对应关系分为 $1-1$ 、 $1-n$ 、 $n-1$ 、 $n-n$ 四种。但在 ConvE 模型\cite{DBLP:conf/aaai/DettmersMS018}中发现，这两个数据集的子集 FB15K 和 WN18 存在严重的测试集泄漏问题，即对于某个训练集中的三元组，反转其头实体和尾实体，就可以在测试集中找到相同的数据。故在此后的研究中，普遍使用去除泄漏数据的 FB15K-237 和 WN18-RR 数据集进行训练、验证和预测。
+
+% \begin{table}
+% 	\centering
+% 	\caption{ WordNet 和 FreeBase 数据集规模}
+% 	\label{tb:WordNet&FreeBase}
+% 	\begin{threeparttable}
+% 		\begin{tabular}{cccccc}
+% 			\hline
+% 			\textbf{数据集} & \multicolumn{4}{c}{\textbf{头实体预测准确率}} & \multicolumn{4}{c}{\textbf{尾实体预测准确率}} \\
+% 			\textbf{} & \textbf{1-1} & \textbf{1-n} & \textbf{n-1} & \textbf{n-n} & \textbf{1-1} & \textbf{1-n} & \textbf{n-1} & \textbf{n-n} \\ \hline
+% 			DISTADD & 70.0 & 76.7 & 21.1 & 53.9 & 68.7 & 17.4 & 83.2 & 57.5 \\
+% 			DISTMULT & 75.5 & 85.1 & 42.9 & 55.2 & 73.7 & 46.7 & 81.0 & 58.8 \\ \hline
+% 		\end{tabular}
+% 	\end{threeparttable}
+% \end{table}
+
+\section{知识表示学习}
 
 知识图谱通常以图的形式存储，这种图结构不仅不利于对知识图谱的进一步研究，更需要设计特定的算法进行相应的计算。因此通常将图结构转化为向量的形式，便于更加高效的解决知识图谱领域的关系提取、关系预测、实体预测等问题。
 
@@ -73,49 +91,45 @@ S_k(E_h,E_t)=\sum_{x=1}^d{S_k(E_h,E_t)_x}
 \begin{displaymath}
 g(E_h,E_t,R_k)=u_k^Ttanh(W^h_kl_h+W^t_kl_t)
 \end{displaymath}
-其中 $u_k$ 为关系 $R_k$ 相关的参数。而 MLP 模型可以看作在 SLM 模型的基础上引入多个隐藏层的结果。 SLM 模型和 MLP 模型并非线性模型，而是利用神经网络进行计算，由此带来了挖掘实体和关系之间隐含语义联系的可能性，一定程度上解决了 SE 模型中无法计算实体之间和关系之间的语义联系的问题，但与此同时也大幅提高了参数计算的复杂度。
+其中 $u_k$ 为关系 $R_k$ 相关的参数。而 MLP 模型可以看作在 SLM 模型的基础上引入多个隐藏层的结果。 SLM 模型和 MLP 模型并非线性模型，而是利用神经网络进行计算，由此带来了挖掘实体和关系之间隐含语义联系的可能性，一定程度上解决了 SE 模型中无法计算实体之间和关系之间的语义联系的问题，但与此同时也大幅提高了参数计算的复杂度，且模型的可解释性较差。
 
-为了进一步解决距离模型中，使用两个投影矩阵无法直观表现关系之间的语义联系的问题，出现了双线性模型。所谓双线性，即头实体向量 $l_h$ 或尾实体向量 $l_t$ 都可以通过一个关系矩阵的线性变换得到对方。隐变量模型（Latent Factor Model，LFM）\cite{DBLP:conf/nips/JenattonRBO12}和DistMult模型\cite{DBLP:journals/corr/YangYHGD14a}就是双线性模型的代表。 LFM 模型可以直观的通过其评价函数来理解：
+为了进一步解决距离模型中，使用两个投影矩阵无法直观表现关系之间的语义联系的问题，出现了双线性模型。隐变量模型（Latent Factor Model，LFM）\cite{DBLP:conf/nips/JenattonRBO12}和 DISTMULT 模型\cite{DBLP:journals/corr/YangYHGD14a}就是双线性模型的代表。 LFM 模型可以直观的通过其评价函数来理解：
 \begin{displaymath}
 g(E_h,E_t,R_k)=l_h^TW_kl_t^T
 \end{displaymath}
+即头实体向量 $l_h$ 或尾实体向量 $l_t$ 都可以通过一个和关系矩阵的线性变换得到对方。双线性将关系表征为一个二维矩阵，大大简化了距离模型的投影矩阵。而 DISTMULT 模型根据 LFM 模型中和权重乘积的过程，将关系矩阵限制为对角矩阵，即主对角线外的元素值都为0，不仅提升了 LFM 模型的效果，还进一步降低关系矩阵参数的规模。同时，针对翻译模型中的 TransE 模型\cite{DBLP:conf/ccir/CaiLZM18}，该论文还提出了 DISTADD 模型\cite{DBLP:journals/corr/YangYHGD14a}，在实体分类问题上的准确率见表\ref{tb:DISTMULT&DISTADD}。相比之下， DISTMULT 模型的效果更胜一筹。
 
-张量神经网络模型（Neural Tensor Networks，NTN）\cite{DBLP:conf/nips/SocherCMN13}则是双线性模型和神经网络模型的结合。
+\begin{table}
+	\centering
+	\caption{ DISTMULT 模型和 DISTADD 模型在实体分类问题上的准确性}
+	\label{tb:DISTMULT&DISTADD}
+	\begin{threeparttable}
+		\begin{tabular}{ccccccccc}
+			\hline
+			\textbf{模型} & \multicolumn{4}{c}{\textbf{头实体预测准确率}} & \multicolumn{4}{c}{\textbf{尾实体预测准确率}} \\
+			\textbf{} & \textbf{1-1} & \textbf{1-n} & \textbf{n-1} & \textbf{n-n} & \textbf{1-1} & \textbf{1-n} & \textbf{n-1} & \textbf{n-n} \\ \hline
+			DISTADD & 70.0 & 76.7 & 21.1 & 53.9 & 68.7 & 17.4 & 83.2 & 57.5 \\
+			DISTMULT & 75.5 & 85.1 & 42.9 & 55.2 & 73.7 & 46.7 & 81.0 & 58.8 \\ \hline
+		\end{tabular}
+	\end{threeparttable}
+\end{table}
+
+张量神经网络模型（Neural Tensor Networks，NTN）\cite{DBLP:conf/nips/SocherCMN13}则是双线性模型和神经网络模型的结合。 NTN 模型是在 SLM 模型的基础上引入实体和关系的三阶双线性张量，如图\ref{fg:NTN}所示。 NTN 模型还对向量进行预训练作为初始值，而不是通常采用的随机生成，这样做的好处是尽可能使用实体和关系的语义信息，尤其是在比较稠密的知识图谱中，对模型效果的提高十分明显。 NTN 模型相比上述模型，对实体和联系的语义信息体现的更好，但 NTN 模型所需要的参数较多，难以在知识图谱较稀疏时发挥作用。
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\columnwidth]{figures/NTN.png}
+	\caption{ NTN 模型}
+	\label{fg:NTN}
+\end{figure}
+
+\subsection{张量分解模型}
+
+张量分解模型（RESCAL）\cite{DBLP:conf/icml/NickelTK11}则
 
 \subsection{翻译模型及其扩展模型}
 
-\subsection{其它模型}
-
-% \begin{figure}
-% 	\centering
-% 	\includegraphics[width=0.5\columnwidth]{figures/bi-modalDBM}
-% 	%  \setlength{\abovecaptionskip}{0pt}
-% 	%  \setlength{\belowcaptionskip}{-20pt}
-% 	\caption{Bi-modal Deep Boltzmann Machine}
-% 	\label{fg:DBM}
-% \end{figure}
-
-% \begin{table}
-% 	\centering
-% 	\caption{Mood quadrants and their corresponding number of songs}
-% 	\label{tb:clas-scheme}
-% 	\begin{tabular}{|c|l|l|c|}
-% 		\hline
-% 		\textbf{Quadrant}               & \multicolumn{1}{c|}{\textbf{Group}} & \multicolumn{1}{c|}{\textbf{Tag}} & \textbf{Songs}         \\ \hline
-% 		\multirow{2}{*}{$v^{-}a^{+}$} & G29                                 & aggressive,aggression.            & \multirow{2}{*}{28,168} \\ \cline{2-3}
-% 		& G28                                 & anger,angry,choleric,etc.         &                         \\ \hline
-% 		\multirow{2}{*}{$v^{+}a^{+}$} & G6                                  & cheerful,jolly,festive,etc.       & \multirow{2}{*}{16,315} \\ \cline{2-3}
-% 		& G5                                  & happy,happiness,etc.              &                         \\ \hline
-% 		\multirow{3}{*}{$v^{-}a^{-}$} & G15                                 & sad,sadness,unhappy,etc.          & \multirow{3}{*}{10,154} \\ \cline{2-3}
-% 		& G16                                 & depressed,blue,dark,gloom,etc.    &                         \\ \cline{2-3}
-% 		& G17                                 & heartbreak,grief,sorrow,etc.      &                         \\ \hline
-% 		\multirow{2}{*}{$v^{+}a^{-}$}  & G8                                  & brooding,contemplative,etc.       & \multirow{2}{*}{2,629}  \\ \cline{2-3}
-% 		& G12                                 & calm,comfort,quiet,etc.           &                         \\ \hline
-% 	\end{tabular}
-% \end{table}
-
-
-\section{结论}% and Future Works}
+\section{结论}
 
 \subsubsection*{Acknowledgements}
 
